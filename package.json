@@ -1,0 +1,35 @@
+{
+  "name": "wxt-svelte-starter",
+  "description": "manifest.json description",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "dev:safari": "wxt -b safari",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "build:safari": "wxt build -b safari",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "zip:safari": "wxt zip -b safari",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "prepare": "wxt prepare"
+  },
+  "devDependencies": {
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/chrome": "^0.0.299",
+    "@wxt-dev/module-svelte": "^2.0.3",
+    "@wxt-dev/unocss": "^1.0.0",
+    "lightningcss": "^1.29.1",
+    "svelte": "^5.19.4",
+    "svelte-check": "^4.1.4",
+    "typescript": "^5.7.3",
+    "unocss": "^65.4.3",
+    "vite": "^6.0.11",
+    "vite-plugin-html-minifier": "^1.0.5",
+    "wxt": "^0.19.26"
+  },
+  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
+}
