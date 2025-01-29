@@ -15,13 +15,16 @@
     "zip:firefox": "wxt zip -b firefox",
     "zip:safari": "wxt zip -b safari",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "prepare": "wxt prepare"
+    "prepare": "wxt prepare",
+    "format": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache'",
+    "format:check": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache' --log-level=warn"
   },
   "devDependencies": {
     "@tsconfig/svelte": "^5.0.4",
     "@types/chrome": "^0.0.299",
     "@wxt-dev/module-svelte": "^2.0.3",
     "lightningcss": "^1.29.1",
+    "prettier": "^3.4.2",
     "svelte": "^5.19.4",
     "svelte-check": "^4.1.4",
     "turbo": "^2.3.4",

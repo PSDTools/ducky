@@ -9,7 +9,14 @@
     "zip:firefox": {},
     "zip:safari": {},
     "check": {},
-    "prepare": {}
+    "prepare": {},
+    "format": {
+      "outputs": ["node_modules/.cache/.prettiercache"],
+      "cache": false
+    },
+    "format:check": {
+      "outputs": ["node_modules/.cache/.prettiercache"]
+    }
   },
   "remoteCache": {
     "enabled": false
