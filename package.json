@@ -21,12 +21,10 @@
     "@tsconfig/svelte": "^5.0.4",
     "@types/chrome": "^0.0.299",
     "@wxt-dev/module-svelte": "^2.0.3",
-    "@wxt-dev/unocss": "^1.0.0",
     "lightningcss": "^1.29.1",
     "svelte": "^5.19.4",
     "svelte-check": "^4.1.4",
     "typescript": "^5.7.3",
-    "unocss": "^65.4.3",
     "vite": "^6.0.11",
     "vite-plugin-html-minifier": "^1.0.5",
     "wxt": "^0.19.26"

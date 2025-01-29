@@ -5,7 +5,7 @@ import htmlMinifier from "vite-plugin-html-minifier";
 export default defineConfig({
   srcDir: "src",
   extensionApi: "chrome",
-  modules: ["@wxt-dev/module-svelte", "@wxt-dev/unocss"],
+  modules: ["@wxt-dev/module-svelte"],
   vite: () => ({
     build: {
       cssMinify: "lightningcss",
