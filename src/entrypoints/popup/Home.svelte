@@ -7,7 +7,7 @@
     <img src={duckyLogo} class="logo svelte" alt="Ducky Logo" />
     <div>
       <h1 style="margin: 0;">Ducky</h1>
-      <span style="font-size: medium;">Teaching and Protecting</span>
+      <span style="font-size: medium;">Teaching & Protecting</span>
     </div>
   </div>
   <hr />
@@ -39,6 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: start;
   }
 
   .card {
@@ -48,6 +49,7 @@
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
+    text-align: center;
 
     & > a.button {
       width: 100%;
