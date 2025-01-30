@@ -1,40 +1,56 @@
 <script lang="ts">
-  import svelteLogo from "../../assets/svelte.svg";
-  import Counter from "../../lib/Counter.svelte";
+  import duckyLogo from "../../assets/ducky.svg";
 </script>
 
 <main>
-  <div>
-    <a href="https://wxt.dev" target="_blank" rel="noreferrer">
-      <img src="/wxt.svg" class="logo" alt="WXT Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+  <div class="header">
+    <img src={duckyLogo} class="logo svelte" alt="Ducky Logo" />
+
+    <h1>Ducky</h1>
   </div>
-  <h1>WXT + Svelte</h1>
+
+  <hr />
 
   <div class="card">
-    <Counter />
-  </div>
+    {#snippet button(name: string)}
+      <a class="button" href="#/">{name}</a>
+    {/snippet}
 
-  <p class="read-the-docs">Click on the WXT and Svelte logos to learn more</p>
+    {@render button("Chat")}
+    {@render button("AI Image Detector")}
+    {@render button("Fact Checker")}
+  </div>
 </main>
 
 <style>
   .logo {
-    height: 6em;
-    padding: 1.5em;
+    height: 4em;
+    padding: 1rem;
     will-change: filter;
     transition: filter 300ms;
   }
   .logo:hover {
-    filter: drop-shadow(0 0 2em #54bc4ae0);
+    filter: drop-shadow(0 0 2em #e2c100e0);
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .read-the-docs {
-    color: #888;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+
+    & > * {
+      width: 100%;
+      background-color: #e2c100;
+      color: #242424;
+    }
   }
 </style>
