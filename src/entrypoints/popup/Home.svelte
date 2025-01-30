@@ -5,27 +5,29 @@
 <main>
   <div class="header">
     <img src={duckyLogo} class="logo svelte" alt="Ducky Logo" />
-
-    <h1>Ducky</h1>
+    <div>
+      <h1 style="margin: 0;">Ducky</h1>
+      <span style="font-size: medium;">Teaching and Protecting</span>
+    </div>
   </div>
-
   <hr />
 
   <div class="card">
-    {#snippet button(name: string)}
-      <a class="button" href="#/">{name}</a>
+    {#snippet button(name: string, route: string)}
+      <a class="button" href={route}>{name}</a>
     {/snippet}
 
-    {@render button("Chat")}
-    {@render button("AI Image Detector")}
-    {@render button("Fact Checker")}
+    {@render button("Chat", "#/chat")}
+    {@render button("AI Image Detector", "#/ai-detector")}
+    {@render button("Fact Checker", "#/fact-check")}
+    {@render button("Settings", "#/settings")}
   </div>
 </main>
 
 <style>
   .logo {
     height: 4em;
-    padding: 1rem;
+    padding: 0.4rem;
     will-change: filter;
     transition: filter 300ms;
   }
@@ -47,10 +49,17 @@
     gap: 1rem;
     padding: 1rem;
 
-    & > * {
+    & > a.button {
       width: 100%;
       background-color: #e2c100;
       color: #242424;
+      transition:
+        background 0.3s,
+        transform 0.2s;
+
+      &:hover {
+        transform: scale(1.075);
+      }
     }
   }
 </style>
