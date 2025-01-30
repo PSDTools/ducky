@@ -19,6 +19,9 @@
     "format": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache'",
     "format:check": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache' --log-level=warn"
   },
+  "dependencies": {
+    "@dvcol/svelte-simple-router": "^1.10.3"
+  },
   "devDependencies": {
     "@tsconfig/svelte": "^5.0.4",
     "@types/chrome": "^0.0.299",
