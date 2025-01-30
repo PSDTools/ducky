@@ -25,6 +25,7 @@
     "@wxt-dev/module-svelte": "^2.0.3",
     "lightningcss": "^1.29.1",
     "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.3.3",
     "svelte": "^5.19.5",
     "svelte-check": "^4.1.4",
     "turbo": "^2.3.4",
