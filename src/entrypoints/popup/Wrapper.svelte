@@ -23,7 +23,7 @@
 
 <div>
   <div class="header">
-    <div class="logobutton">
+    <div class={{ "logo-button": true, "small-hover": !isHome }}>
       {#snippet logo()}
         <img
           src={isHome ? duckyLogo : backButton}
@@ -35,7 +35,7 @@
       {#if isHome}
         {@render logo()}
       {:else}
-        <a class={{ logolink: true }} href="#/" type="button">
+        <a href="#/" type="button">
           {@render logo()}
         </a>
       {/if}
@@ -43,7 +43,7 @@
     <div></div>
 
     <div>
-      <h1 class={{ bigTitle }}>{pageTitle}</h1>
+      <h1 class={{ "big-title": bigTitle }}>{pageTitle}</h1>
       {#if subtitle !== undefined}
         <span class={{ subtitle }}>Teaching & Protecting</span>
       {/if}
@@ -57,19 +57,35 @@
 </div>
 
 <style>
-  .logobutton {
+  .logo-button {
     height: 4em;
     padding: 0.4rem;
     will-change: filter;
     transition: filter 300ms;
 
     transition:
-      background 0.3s,
+      filter 0.3s,
       transform 0.2s;
+
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
 
     &:hover {
       filter: drop-shadow(0 0 0.5rem #e2c100e0);
       transform: scale(1.075);
+
+      &.small-hover {
+        filter: drop-shadow(0 0 0.3rem #e2c100e0);
+      }
+    }
+
+    & > a {
+      display: contents;
     }
   }
 
@@ -80,11 +96,11 @@
   }
 
   .logo {
-    width: 5rem;
+    max-height: 100%;
   }
 
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     margin: 0;
   }
@@ -93,11 +109,7 @@
     font-size: 1rem;
   }
 
-  .bigTitle {
+  .big-title {
     font-size: 3rem;
-  }
-
-  .logolink {
-    display: contents;
   }
 </style>

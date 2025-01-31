@@ -1,20 +1,16 @@
 <script lang="ts">
-  import duckyLogo from "../../assets/ducky.svg";
+  import Wrapper from "./Wrapper.svelte";
 </script>
 
-<main>
-  <div class="header">
-    <img src={duckyLogo} class="logo" alt="Ducky Logo" />
-    <div>
-      <h1 style="margin: 0;">Ducky</h1>
-      <span style="font-size: medium;">Teaching & Protecting</span>
-    </div>
-  </div>
-  <hr />
-
+<Wrapper
+  isHome={true}
+  pageTitle="Home"
+  bigTitle={true}
+  subtitle="Teaching & Protecting"
+>
   <div class="card">
     {#snippet button(name: string, route: string)}
-      <a class="button" href={route}>{name}</a>
+      <a href={route}>{name}</a>
     {/snippet}
 
     {@render button("Chat", "#/chat")}
@@ -22,26 +18,9 @@
     {@render button("Fact Checker", "#/fact-check")}
     {@render button("Settings", "#/settings")}
   </div>
-</main>
+</Wrapper>
 
 <style>
-  .logo {
-    height: 4em;
-    padding: 0.4rem;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #e2c100e0);
-  }
-
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: start;
-  }
-
   .card {
     display: flex;
     flex-direction: column;
@@ -51,15 +30,25 @@
     padding: 1rem;
     text-align: center;
 
-    & > a.button {
+    & > a {
       width: 100%;
       background-color: #e2c100;
       color: #242424;
       transition:
-        background 0.3s,
+        border-color 0.25s,
+        background-color 0.3s,
         transform 0.2s;
 
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+
       &:hover {
+        background-color: #f0d500;
         transform: scale(1.075);
       }
     }

@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { RouterView } from "@dvcol/svelte-simple-router/components";
-
-  import type {
-    Route,
-    RouterOptions,
-  } from "@dvcol/svelte-simple-router/models";
+  import {
+    RouterView,
+    type Route,
+    type RouterOptions,
+  } from "@dvcol/svelte-simple-router";
 
   import HomeComponent from "./Home.svelte";
   import SettingsComponent from "./Settings.svelte";
@@ -26,7 +25,7 @@
   export const routes = [
     {
       name: RouteName.Home,
-      path: `/${RouteName.Home}`,
+      path: `/`,
       component: HomeComponent,
     },
     {
