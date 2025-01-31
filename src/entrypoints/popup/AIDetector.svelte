@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Wrapper from "./Wrapper.svelte";
 </script>
 
-<main></main>
+<Wrapper pageTitle="AI Ducktection">.</Wrapper>

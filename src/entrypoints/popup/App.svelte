@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { RouterView } from "@dvcol/svelte-simple-router/components";
-
-  import type {
-    Route,
-    RouterOptions,
-  } from "@dvcol/svelte-simple-router/models";
+  import {
+    RouterView,
+    type Route,
+    type RouterOptions,
+  } from "@dvcol/svelte-simple-router";
 
   import HomeComponent from "./Home.svelte";
   import SettingsComponent from "./Settings.svelte";
@@ -23,10 +22,10 @@
 
   type RouteNames = (typeof RouteName)[keyof typeof RouteName];
 
-  export const routes: Readonly<Route<RouteNames>[]> = [
+  export const routes = [
     {
       name: RouteName.Home,
-      path: `/${RouteName.Home}`,
+      path: `/`,
       component: HomeComponent,
     },
     {
@@ -57,7 +56,7 @@
         name: RouteName.Home,
       },
     },
-  ] as const;
+  ] as const satisfies Route<RouteNames>[];
 
   export const options = {
     routes,
