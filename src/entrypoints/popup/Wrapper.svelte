@@ -23,7 +23,7 @@
 
 <div>
   <div class="header">
-    <div class={{ "logo-button": true, "small-hover": !isHome }}>
+    <div class={{ "logo-button": true, "home-button": isHome }}>
       {#snippet logo()}
         <img
           src={isHome ? duckyLogo : backButton}
@@ -40,12 +40,11 @@
         </a>
       {/if}
     </div>
-    <div></div>
 
     <div>
       <h1 class={{ "big-title": bigTitle }}>{pageTitle}</h1>
       {#if subtitle !== undefined}
-        <span class={{ subtitle }}>Teaching & Protecting</span>
+        <span class={{ subtitle: true }}>{subtitle}</span>
       {/if}
     </div>
   </div>
@@ -58,8 +57,8 @@
 
 <style>
   .logo-button {
-    height: 4em;
-    padding: 0.4rem;
+    height: 3rem;
+    padding-right: 0.4rem;
     will-change: filter;
     transition: filter 300ms;
 
@@ -69,18 +68,21 @@
 
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
 
+    &.home-button {
+      height: 4rem;
+    }
+
     &:hover {
-      filter: drop-shadow(0 0 0.5rem #e2c100e0);
+      filter: drop-shadow(0 0 0.3rem #e2c100e0);
       transform: scale(1.075);
 
-      &.small-hover {
-        filter: drop-shadow(0 0 0.3rem #e2c100e0);
+      &.home-button {
+        filter: drop-shadow(0 0 0.5rem #e2c100e0);
       }
     }
 
@@ -92,7 +94,7 @@
   .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
   }
 
   .logo {
