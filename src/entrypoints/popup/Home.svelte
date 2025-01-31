@@ -4,7 +4,7 @@
 
 <main>
   <div class="header">
-    <img src={duckyLogo} class="logo svelte" alt="Ducky Logo" />
+    <img src={duckyLogo} class="logo" alt="Ducky Logo" />
     <div>
       <h1 style="margin: 0;">Ducky</h1>
       <span style="font-size: medium;">Teaching & Protecting</span>

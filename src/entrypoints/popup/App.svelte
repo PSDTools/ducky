@@ -23,7 +23,7 @@
 
   type RouteNames = (typeof RouteName)[keyof typeof RouteName];
 
-  export const routes: Readonly<Route<RouteNames>[]> = [
+  export const routes = [
     {
       name: RouteName.Home,
       path: `/${RouteName.Home}`,
@@ -57,7 +57,7 @@
         name: RouteName.Home,
       },
     },
-  ] as const;
+  ] as const satisfies Route<RouteNames>[];
 
   export const options = {
     routes,
