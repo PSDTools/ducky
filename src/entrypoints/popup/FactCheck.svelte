@@ -3,20 +3,14 @@
 </script>
 
 <Wrapper pageTitle="Fact Checker">
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <label class="toggle-switch">
-      <input type="checkbox" />
-      <span class="slider"></span>
-    </label>
-    <p>Use Current Website</p>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <label class="toggle-switch">
-      <input type="checkbox" />
-      <span class="slider"></span>
-    </label>
-    <p>Use Other Website</p>
-  </div>
+  <label class="option">
+    <input type="radio" name="answer" value="A" />
+    <span class="bubble"></span>Use Current Website
+  </label>
+  <label class="option">
+    <input type="radio" name="answer" value="B" />
+    <span class="bubble"></span>Use Other Website
+  </label>
 </Wrapper>
 
 <style>
@@ -103,5 +97,46 @@
 
   .toggle-switch input:checked + .slider::before {
     transform: translateX(26px);
+  }
+
+  /* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        } */
+  .question {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .option {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .bubble {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ebde1f;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]:checked + .bubble {
+    background-color: #ebde1f;
   }
 </style>
