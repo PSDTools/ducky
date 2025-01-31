@@ -27,43 +27,6 @@
 </Wrapper>
 
 <style>
-  .logo {
-    height: 4em;
-    padding: 0.4rem;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #e2c100e0);
-  }
-
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-
-    & > a.button {
-      width: 100%;
-      background-color: #e2c100;
-      color: #242424;
-      transition:
-        background 0.3s,
-        transform 0.2s;
-
-      &:hover {
-        transform: scale(1.075);
-      }
-    }
-  }
   /* Container for the toggle */
   .toggle-switch {
     position: relative;
