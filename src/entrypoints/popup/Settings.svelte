@@ -2,8 +2,7 @@
   import Wrapper from "./Wrapper.svelte";
 </script>
 
-<Wrapper pageTitle="Settings">.</Wrapper>
-<main>
+<Wrapper pageTitle="Settings">
   <div style="display: flex; align-items: center; gap: 1rem;">
     <label class="toggle-switch">
       <input type="checkbox" />
@@ -25,7 +24,7 @@
     </label>
     <p>PPI Masker</p>
   </div>
-</main>
+</Wrapper>
 
 <style>
   .logo {
