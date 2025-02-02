@@ -36,7 +36,7 @@
       color: #242424;
       transition:
         border-color 0.25s,
-        background-color 0.3s,
+        background 0.3s,
         transform 0.2s;
 
       border-radius: 8px;

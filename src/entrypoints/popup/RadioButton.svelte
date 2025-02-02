@@ -20,7 +20,7 @@
     display: inline-block;
 
     transition:
-      background-color 0.5s,
+      background 0.5s,
       transform 0.2s;
 
     &:checked {

@@ -17,7 +17,7 @@
     background-color: #cccccc;
     color: #f0d500;
     transition:
-      background-color 0.3s,
+      background 0.3s,
       transform 0.2s;
     outline: none;
     cursor: pointer;
