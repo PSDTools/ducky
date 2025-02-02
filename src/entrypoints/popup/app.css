@@ -71,6 +71,14 @@ button:focus-visible {
   }
 }
 
+fieldset {
+  border: none;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* start tailwind forms reset */
 
 [type="text"],
