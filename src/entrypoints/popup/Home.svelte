@@ -3,14 +3,14 @@
 </script>
 
 <Wrapper
+  bigTitle={true}
   isHome={true}
   pageTitle="Home"
-  bigTitle={true}
   subtitle="Teaching & Protecting"
 >
   <div class="card">
     {#snippet button(name: string, route: string)}
-      <a href={route}>{name}</a>
+      <a class="link-button" href={route}>{name}</a>
     {/snippet}
 
     {@render button("Chat", "#/chat")}
@@ -30,7 +30,7 @@
     padding: 1rem;
     text-align: center;
 
-    & > a {
+    & > .link-button {
       width: 100%;
       background-color: #e2c100;
       color: #242424;

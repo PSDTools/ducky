@@ -8,10 +8,10 @@
   const props: Props = $props();
 </script>
 
-<input {...props} type="radio" />
+<input {...props} class="radio" type="radio" />
 
 <style>
-  input[type="radio"] {
+  .radio {
     width: 20px;
     height: 20px;
     border-radius: 50%;

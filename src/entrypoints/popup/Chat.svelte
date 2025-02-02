@@ -1,54 +1,51 @@
 <script lang="ts">
   import Wrapper from "./Wrapper.svelte";
   import { Send } from "lucide-svelte";
-  var text = $state<string>();
+  let question = $state<string>();
+  let response = $state<string>();
 </script>
 
 <Wrapper pageTitle="Ducky Chat">
-  <p id="response">Ask me a question!</p>
+  <p id="response">{response}</p>
   <form
     class="form"
     onsubmit={(event) => {
       // prettier-ignore
-      setTimeout(() => { document.getElementById("response")!.innerText = "Loading."; }, 250);
+      setTimeout(() => { response = "Loading." }, 250);
       // prettier-ignore
-      setTimeout(() => { document.getElementById("response")!.innerText = "Loading.."; }, 500);
+      setTimeout(() => { response = "Loading.."; }, 500);
       // prettier-ignore
-      setTimeout(() => { document.getElementById("response")!.innerText = "Loading..."; }, 750);
+      setTimeout(() => { response = "Loading..."; }, 750);
       // prettier-ignore
-      setTimeout(() => { document.getElementById("response")!.innerText = "Loading.."; }, 1000);
+      setTimeout(() => { response = "Loading.."; }, 1000);
       // prettier-ignore
-      setTimeout(() => { document.getElementById("response")!.innerText = "Loading."; }, 1250);
+      setTimeout(() => { response = "Loading."; }, 1250);
       // prettier-ignore
-      setTimeout(() => { document.getElementById("response")!.innerText = "Loading.."; }, 1500);
+      setTimeout(() => { response = "Loading.."; }, 1500);
       // prettier-ignore
-      setTimeout(() => { document.getElementById("response")!.innerText = "Loading..."; }, 1750);
-      if (text == "What do you do?") {
+      setTimeout(() => { response = "Loading..."; }, 1750);
+      if (question == "What do you do?") {
         // prettier-ignore
-        setTimeout(() => { document.getElementById("response")!.innerText = "I am a AI assistant that will help with digital literacy and cyber security! Quack!"; }, 2000);
-      } else if (text == "Tell me more about how you can help.") {
+        setTimeout(() => { response = "I am a AI assistant that will help with digital literacy and cyber security! Quack!"; }, 2000);
+      } else if (question == "Tell me more about how you can help.") {
         // prettier-ignore
-        setTimeout(() => { document.getElementById("response")!.innerText = "I can help by detecting AI images, I can fact check websites, and let you know if an email you got is phishing! Quack!"; }, 2000);
+        setTimeout(() => { response = "I can help by detecting AI images, I can fact check websites, and let you know if an email you got is phishing! Quack!"; }, 2000);
       }
       event.preventDefault();
     }}
   >
-    <input bind:value={text} class="textbox" id="textbox" type="text" />
-    <button aria-label="Send" class="submit" type="submit">
+    <input id="textbox" class="textbox" type="text" bind:value={question} />
+    <button class="submit" aria-label="Send" type="submit">
       <Send />
     </button>
   </form>
 
   <div class="open">
-    <a href="https://chatgpt.com">Open Chat in Browser</a>
+    <a class="chat-button" href="https://chatgpt.com">Open Chat in Browser</a>
   </div>
 </Wrapper>
 
 <style>
-  .response-container {
-    height: 60%;
-    color: #e2c100;
-  }
   .textbox {
     color: black;
     width: 70%;
@@ -95,7 +92,7 @@
     padding: 1rem;
     text-align: center;
 
-    & > a {
+    & > .chat-button {
       width: 100%;
       background-color: #e2c100;
       color: #242424;

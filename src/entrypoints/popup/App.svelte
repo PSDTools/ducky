@@ -16,7 +16,7 @@
     Home: "home",
     Phishing: "phishing",
     FactCheck: "fact-check",
-    FactCheckLoading:"fact-check-loading",
+    FactCheckLoading: "fact-check-loading",
     PIIMasker: "pii-masker",
     Chat: "chat",
     Any: "any",
@@ -40,7 +40,7 @@
       path: `/${RouteName.FactCheck}`,
       component: FactCheckComponent,
     },
-        {
+    {
       name: RouteName.FactCheckLoading,
       path: `/${RouteName.FactCheckLoading}`,
       component: FactCheckLoadingComponent,

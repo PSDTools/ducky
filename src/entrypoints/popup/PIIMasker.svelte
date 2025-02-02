@@ -7,8 +7,8 @@
   <form>
     <fieldset>
       <Toggle id="phishing" />
-      <label for="phishing" class="toggle-switch">Enable PII Masker</label>
-      <!-- Add in button "What is the PII Masker" that links to the chat and asks Lucas-->
+      <label class="toggle-switch" for="phishing">Enable PII Masker</label>
+      <!-- Add in button "What is the PII Masker" that links to the chat and asks Lucas -->
     </fieldset>
   </form>
 </Wrapper>

@@ -7,8 +7,8 @@
 
   onMount(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const currentTab = tabs[0];
-      currentTabText = currentTab.url || "Unknown Tab";
+      const [currentTab] = tabs;
+      currentTabText = currentTab.url ?? "Unknown Tab";
     });
   });
 </script>
@@ -20,7 +20,7 @@
       <div>
         <div>
           <RadioButton id="current" name="answer" value="current" />
-          <label for="current" class="option">Current Website</label>
+          <label class="option" for="current">Current Website</label>
         </div>
         <div class="other-input">
           <p>{currentTabText}</p>
@@ -28,20 +28,20 @@
         <div>
           <div class="radio-other-container">
             <RadioButton id="other" name="answer" value="other" />
-            <label for="other" class="option">Other Website</label>
+            <label class="option" for="other">Other Website</label>
           </div>
           <div class="other-input">
-            <input type="text" placeholder="Enter website URL" />
+            <input placeholder="Enter website URL" type="text" />
           </div>
         </div>
       </div>
     </fieldset>
-          <div class="card">
-    {#snippet button(name: string, route: string)}
-      <a href={route}>{name}</a>
-    {/snippet}
-            {@render button("Submit","#/fact-check-loading")}
-      </div>
+    <div class="card">
+      {#snippet button(name: string, route: string)}
+        <a href={route}>{name}</a>
+      {/snippet}
+      {@render button("Submit", "#/fact-check-loading")}
+    </div>
   </form>
 </Wrapper>
 
@@ -74,8 +74,9 @@
     margin: 0;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    display: flex;
+    flex-direction: column;
   }
   .card {
     display: flex;

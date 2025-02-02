@@ -27,30 +27,31 @@
     <div class={{ "logo-button": true, "home-button": isHome }}>
       {#snippet logo()}
         <img
-          src={isHome ? duckyLogo : backButton}
           class="logo"
           alt={isHome ? "Ducky Logo" : "Go Back"}
+          src={isHome ? duckyLogo : backButton}
         />
       {/snippet}
 
       {#if isHome}
         <button
-          type="button"
-          onclick={() => {
-            new Audio(quack).play();
+          class="sound-button"
+          onclick={async () => {
+            await new Audio(quack).play();
           }}
+          type="button"
         >
           {@render logo()}
         </button>
       {:else}
-        <a href="#/" type="button">
+        <a class="link-button" href="#/">
           {@render logo()}
         </a>
       {/if}
     </div>
 
     <div>
-      <h1 class={{ "big-title": bigTitle }}>{pageTitle}</h1>
+      <h1 class={{ title: true, "big-title": bigTitle }}>{pageTitle}</h1>
       {#if subtitle !== undefined}
         <span class={{ subtitle: true }}>{subtitle}</span>
       {/if}
@@ -94,7 +95,7 @@
       }
     }
 
-    & > a {
+    & > .link-button {
       display: contents;
     }
   }
@@ -109,7 +110,7 @@
     max-height: 100%;
   }
 
-  h1 {
+  .title {
     font-size: 1.5rem;
     font-weight: bolder;
     margin: 0;
@@ -121,5 +122,15 @@
 
   .big-title {
     font-size: 3rem;
+  }
+
+  .sound-button {
+    display: contents;
+    cursor: pointer;
+    outline: revert;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 </style>
