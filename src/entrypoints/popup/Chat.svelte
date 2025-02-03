@@ -1,18 +1,36 @@
 <script lang="ts">
   import Wrapper from "./Wrapper.svelte";
   import { Send } from "lucide-svelte";
-
   var text = $state<string>();
 </script>
 
 <Wrapper pageTitle="Ducky Chat">
-  <div class="response-container">
-    <p>Ask me a question!</p>
-  </div>
+  <p id="response">Ask me a question!</p>
   <form
     class="form"
-    onsubmit={() => {
-      alert(text ?? "");
+    onsubmit={(event) => {
+      // prettier-ignore
+      setTimeout(() => { document.getElementById("response")!.innerText = "Loading."; }, 250);
+      // prettier-ignore
+      setTimeout(() => { document.getElementById("response")!.innerText = "Loading.."; }, 500);
+      // prettier-ignore
+      setTimeout(() => { document.getElementById("response")!.innerText = "Loading..."; }, 750);
+      // prettier-ignore
+      setTimeout(() => { document.getElementById("response")!.innerText = "Loading.."; }, 1000);
+      // prettier-ignore
+      setTimeout(() => { document.getElementById("response")!.innerText = "Loading."; }, 1250);
+      // prettier-ignore
+      setTimeout(() => { document.getElementById("response")!.innerText = "Loading.."; }, 1500);
+      // prettier-ignore
+      setTimeout(() => { document.getElementById("response")!.innerText = "Loading..."; }, 1750);
+      if (text == "What do you do?") {
+        // prettier-ignore
+        setTimeout(() => { document.getElementById("response")!.innerText = "I am a AI assistant that will help with digital literacy and cyber security! Quack!"; }, 2000);
+      } else if (text == "Tell me more about how you can help.") {
+        // prettier-ignore
+        setTimeout(() => { document.getElementById("response")!.innerText = "I can help by detecting AI images, I can fact check websites, and let you know if an email you got is phishing! Quack!"; }, 2000);
+      }
+      event.preventDefault();
     }}
   >
     <input bind:value={text} type="text" class="textbox" id="textbox" />
@@ -22,7 +40,7 @@
   </form>
 
   <div class="open">
-    <a href="https://www.w3schools.com">Open Chat in Browser</a>
+    <a href="https://chatgpt.com">Open Chat in Browser</a>
   </div>
 </Wrapper>
 
