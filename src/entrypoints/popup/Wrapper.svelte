@@ -22,7 +22,7 @@
 </script>
 
 <div>
-  <div class="header">
+  <header class="header">
     <div class={{ "logo-button": true, "home-button": isHome }}>
       {#snippet logo()}
         <img
@@ -47,7 +47,7 @@
         <span class={{ subtitle: true }}>{subtitle}</span>
       {/if}
     </div>
-  </div>
+  </header>
   <hr />
 
   <main>

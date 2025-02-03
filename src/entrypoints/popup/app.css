@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 a {
@@ -71,6 +71,14 @@ button:focus-visible {
   }
 }
 
+fieldset {
+  border: none;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* start tailwind forms reset */
 
 [type="text"],
@@ -89,8 +97,6 @@ input:where(:not([type])),
 [multiple],
 textarea,
 select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background-color: #fff;
   border-color: #6b7280;
@@ -169,7 +175,6 @@ select {
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
-  -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
@@ -180,23 +185,17 @@ select {
   background-repeat: unset;
   background-size: initial;
   padding-right: 0.75rem;
-  -webkit-print-color-adjust: unset;
   print-color-adjust: unset;
 }
 
 [type="checkbox"],
 [type="radio"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   padding: 0;
-  -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
   display: inline-block;
   vertical-align: middle;
   background-origin: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
   flex-shrink: 0;
   height: 1rem;
@@ -236,8 +235,6 @@ select {
 
 @media (forced-colors: active) {
   [type="checkbox"]:checked {
-    -webkit-appearance: auto;
-    -moz-appearance: auto;
     appearance: auto;
   }
 }
@@ -248,8 +245,6 @@ select {
 
 @media (forced-colors: active) {
   [type="radio"]:checked {
-    -webkit-appearance: auto;
-    -moz-appearance: auto;
     appearance: auto;
   }
 }
@@ -273,8 +268,6 @@ select {
 
 @media (forced-colors: active) {
   [type="checkbox"]:indeterminate {
-    -webkit-appearance: auto;
-    -moz-appearance: auto;
     appearance: auto;
   }
 }
@@ -304,8 +297,6 @@ select {
 .form-textarea,
 .form-select,
 .form-multiselect {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background-color: #fff;
   border-color: #6b7280;
@@ -372,7 +363,6 @@ select {
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
-  -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
@@ -382,23 +372,17 @@ select {
   background-repeat: unset;
   background-size: initial;
   padding-right: 0.75rem;
-  -webkit-print-color-adjust: unset;
   print-color-adjust: unset;
 }
 
 .form-checkbox,
 .form-radio {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   padding: 0;
-  -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
   display: inline-block;
   vertical-align: middle;
   background-origin: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
   flex-shrink: 0;
   height: 1rem;
@@ -438,8 +422,6 @@ select {
 
 @media (forced-colors: active) {
   .form-checkbox:checked {
-    -webkit-appearance: auto;
-    -moz-appearance: auto;
     appearance: auto;
   }
 }
@@ -450,8 +432,6 @@ select {
 
 @media (forced-colors: active) {
   .form-radio:checked {
-    -webkit-appearance: auto;
-    -moz-appearance: auto;
     appearance: auto;
   }
 }
@@ -475,8 +455,6 @@ select {
 
 @media (forced-colors: active) {
   .form-checkbox:indeterminate {
-    -webkit-appearance: auto;
-    -moz-appearance: auto;
     appearance: auto;
   }
 }
