@@ -1,30 +1,33 @@
 <script lang="ts">
   import Wrapper from "./Wrapper.svelte";
+  import { Send } from "lucide-svelte";
 
   var text = $state<string>();
 </script>
 
 <Wrapper pageTitle="Ducky Chat">
-  <div class="responceDiv">
-    <p id="response">Send a message for me to respond!</p>
+  <div class="response-container">
+    <p>Ask me a question!</p>
   </div>
   <form
-    class="textboxAndSubmit"
+    class="form"
     onsubmit={() => {
-      alert(text);
+      alert(text ?? "");
     }}
   >
     <input bind:value={text} type="text" class="textbox" id="textbox" />
-    <input type="submit" value="Enter" class="submit" />
+    <button aria-label="Send" class="submit" type="submit">
+      <Send />
+    </button>
   </form>
 
-  <div class="openInBrowser">
-    <a href="https://www.w3schools.com">Open Chat in Broswer</a>
+  <div class="open">
+    <a href="https://www.w3schools.com">Open Chat in Browser</a>
   </div>
 </Wrapper>
 
 <style>
-  .responceDiv {
+  .response-container {
     height: 60%;
     color: #e2c100;
   }
@@ -32,14 +35,38 @@
     color: black;
     display: inline;
     width: 70%;
+
+    border-radius: 1rem;
   }
   .submit {
-    display: inline;
+    all: unset;
+    outline: revert;
+    background-color: #e2c100;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0.5rem;
+
+    transition:
+      background-color 0.3s,
+      transform 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #f0d500;
+      transform: scale(1.075);
+    }
   }
-  .textboxAndSubmit {
-    display: inline-block;
+  .form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
-  .openInBrowser {
+  .open {
     display: flex;
     flex-direction: column;
     align-items: center;

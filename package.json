@@ -20,7 +20,8 @@
     "format:check": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache' --log-level=warn"
   },
   "dependencies": {
-    "@dvcol/svelte-simple-router": "^1.10.3"
+    "@dvcol/svelte-simple-router": "^1.10.3",
+    "lucide-svelte": "^0.474.0"
   },
   "devDependencies": {
     "@tsconfig/svelte": "^5.0.4",
