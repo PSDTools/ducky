@@ -11,6 +11,9 @@ importers:
       '@dvcol/svelte-simple-router':
         specifier: ^1.10.3
         version: 1.10.3(@types/node@22.12.0)(lightningcss@1.29.1)(svelte@5.19.5)(terser@5.37.0)
+      lucide-svelte:
+        specifier: ^0.474.0
+        version: 0.474.0(svelte@5.19.5)
     devDependencies:
       '@tsconfig/svelte':
         specifier: ^5.0.4
@@ -1643,6 +1646,11 @@ packages:
   lowercase-keys@3.0.0:
     resolution: {integrity: sha512-ozCC6gdQ+glXOQsveKD0YsDy8DSQFjDTz4zyzEHNV5+JP5D62LmfDZ6o1cycFx9ouG940M5dE8C8CTewdj2YWQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  lucide-svelte@0.474.0:
+    resolution: {integrity: sha512-yOSqjXPoEDOXCceBIfDaed6RinOvhp03ShiTXH6O+vlXE/NsyjQpktL8gm2vGDxi9d81HMuPFN1dwhVURh6mGg==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
@@ -4007,6 +4015,10 @@ snapshots:
       tslib: 2.8.1
 
   lowercase-keys@3.0.0: {}
+
+  lucide-svelte@0.474.0(svelte@5.19.5):
+    dependencies:
+      svelte: 5.19.5
 
   magic-string@0.30.17:
     dependencies:
