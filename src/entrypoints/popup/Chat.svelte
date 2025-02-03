@@ -15,7 +15,8 @@
       alert(text ?? "");
     }}
   >
-    <input bind:value={text} type="text" class="textbox" id="textbox" />
+    <textarea bind:value={text} rows="1" class="textbox" id="textbox"
+    ></textarea>
     <button aria-label="Send" class="submit" type="submit">
       <Send />
     </button>
@@ -33,8 +34,10 @@
   }
   .textbox {
     color: black;
-    display: inline;
     width: 70%;
+    field-sizing: content;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    resize: none;
 
     border-radius: 1rem;
   }
@@ -64,7 +67,7 @@
   .form {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
   }
   .open {
     display: flex;
