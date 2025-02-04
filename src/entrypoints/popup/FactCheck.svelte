@@ -36,6 +36,12 @@
         </div>
       </div>
     </fieldset>
+          <div class="card">
+    {#snippet button(name: string, route: string)}
+      <a href={route}>{name}</a>
+    {/snippet}
+            {@render button("Submit","#/fact-check-loading")}
+      </div>
   </form>
 </Wrapper>
 
@@ -70,5 +76,37 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+
+    & > a {
+      width: 100%;
+      background-color: #e2c100;
+      color: #242424;
+      transition:
+        border-color 0.25s,
+        background 0.3s,
+        transform 0.2s;
+
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0d500;
+        transform: scale(1.075);
+      }
+    }
   }
 </style>

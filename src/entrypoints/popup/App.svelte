@@ -10,11 +10,13 @@
   import FactCheckComponent from "./FactCheck.svelte";
   import AiDetectorComponent from "./AIDetector.svelte";
   import ChatComponent from "./Chat.svelte";
+  import FactCheckLoadingComponent from "./FactCheckLoading.svelte";
 
   const RouteName = {
     Home: "home",
     Settings: "settings",
     FactCheck: "fact-check",
+    FactCheckLoading:"fact-check-loading",
     AIDetector: "ai-detector",
     Chat: "chat",
     Any: "any",
@@ -37,6 +39,11 @@
       name: RouteName.FactCheck,
       path: `/${RouteName.FactCheck}`,
       component: FactCheckComponent,
+    },
+        {
+      name: RouteName.FactCheckLoading,
+      path: `/${RouteName.FactCheckLoading}`,
+      component: FactCheckLoadingComponent,
     },
     {
       name: RouteName.AIDetector,
