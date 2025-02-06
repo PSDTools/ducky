@@ -7,11 +7,13 @@
   <form>
     <fieldset>
       <Toggle id="phishing" />
-      <label for="phishing" class="toggle-switch">Enable Phishing Detector</label>
+      <label class="toggle-switch" for="phishing"
+        >Enable Phishing Detector</label
+      >
     </fieldset>
     <!-- <fieldset>
       <Toggle id="site-detection" />
-      <label for="site-detection" class="toggle-switch">
+      <label class="toggle-switch" for="site-detection">
         Insecure Site Detector
       </label>
     </fieldset>

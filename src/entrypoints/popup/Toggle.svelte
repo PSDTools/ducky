@@ -6,10 +6,10 @@
   const props: Props = $props();
 </script>
 
-<input {...props} type="checkbox" />
+<input {...props} class="checkbox" type="checkbox" />
 
 <style>
-  input[type="checkbox"] {
+  .checkbox {
     position: relative;
     width: 50px;
     height: 30px;
