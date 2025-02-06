@@ -3,6 +3,7 @@
 
   import backButton from "../../assets/back-button.svg";
   import duckyLogo from "../../assets/ducky.svg";
+  import quack from "../../assets/quack.mp3";
 
   interface Props {
     children: Snippet;
@@ -33,7 +34,14 @@
       {/snippet}
 
       {#if isHome}
-        {@render logo()}
+        <button
+          type="button"
+          onclick={() => {
+            new Audio(quack).play();
+          }}
+        >
+          {@render logo()}
+        </button>
       {:else}
         <a href="#/" type="button">
           {@render logo()}
