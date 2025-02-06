@@ -6,16 +6,18 @@
   } from "@dvcol/svelte-simple-router";
 
   import HomeComponent from "./Home.svelte";
-  import SettingsComponent from "./Settings.svelte";
+  import PhishingComponent from "./Phishing.svelte";
   import FactCheckComponent from "./FactCheck.svelte";
-  import AiDetectorComponent from "./AIDetector.svelte";
+  import PIIMaskerComponent from "./PIIMasker.svelte";
   import ChatComponent from "./Chat.svelte";
+  import FactCheckLoadingComponent from "./FactCheckLoading.svelte";
 
   const RouteName = {
     Home: "home",
-    Settings: "settings",
+    Phishing: "phishing",
     FactCheck: "fact-check",
-    AIDetector: "ai-detector",
+    FactCheckLoading:"fact-check-loading",
+    PIIMasker: "pii-masker",
     Chat: "chat",
     Any: "any",
   } as const;
@@ -29,19 +31,24 @@
       component: HomeComponent,
     },
     {
-      name: RouteName.Settings,
-      path: `/${RouteName.Settings}`,
-      component: SettingsComponent,
+      name: RouteName.Phishing,
+      path: `/${RouteName.Phishing}`,
+      component: PhishingComponent,
     },
     {
       name: RouteName.FactCheck,
       path: `/${RouteName.FactCheck}`,
       component: FactCheckComponent,
     },
+        {
+      name: RouteName.FactCheckLoading,
+      path: `/${RouteName.FactCheckLoading}`,
+      component: FactCheckLoadingComponent,
+    },
     {
-      name: RouteName.AIDetector,
-      path: `/${RouteName.AIDetector}`,
-      component: AiDetectorComponent,
+      name: RouteName.PIIMasker,
+      path: `/${RouteName.PIIMasker}`,
+      component: PIIMaskerComponent,
     },
     {
       name: RouteName.Chat,

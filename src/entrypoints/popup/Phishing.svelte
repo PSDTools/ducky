@@ -3,13 +3,13 @@
   import Wrapper from "./Wrapper.svelte";
 </script>
 
-<Wrapper pageTitle="Settings">
+<Wrapper pageTitle="Phishing Detector">
   <form>
     <fieldset>
       <Toggle id="phishing" />
-      <label for="phishing" class="toggle-switch">Phishing Detector</label>
+      <label for="phishing" class="toggle-switch">Enable Phishing Detector</label>
     </fieldset>
-    <fieldset>
+    <!-- <fieldset>
       <Toggle id="site-detection" />
       <label for="site-detection" class="toggle-switch">
         Insecure Site Detector
@@ -18,6 +18,6 @@
     <fieldset>
       <Toggle id="mask" />
       <label for="mask" class="toggle-switch">PPI Masker</label>
-    </fieldset>
+    </fieldset> -->
   </form>
 </Wrapper>
