@@ -15,8 +15,7 @@
       alert(text ?? "");
     }}
   >
-    <textarea bind:value={text} rows="1" class="textbox" id="textbox"
-    ></textarea>
+    <input bind:value={text} class="textbox" id="textbox" type="text" />
     <button aria-label="Send" class="submit" type="submit">
       <Send />
     </button>
