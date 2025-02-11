@@ -38,17 +38,20 @@ export default ts.config(
   {
     files: ["**/*.{js,ts,svelte}"],
     rules: {
-      "no-undef": off,
-      "arrow-body-style": off,
-      curly: [error, "multi-line"],
+      "arrow-body-style": warn,
       "func-style": [error, "declaration", { allowArrowFunctions: true }],
+      "no-await-in-loop": warn,
       "no-console": warn,
       "no-negated-condition": off,
       "no-nested-ternary": off,
       "no-plusplus": [error, { allowForLoopAfterthoughts: true }],
+      "no-undef": off,
       "no-void": [error, { allowAsStatement: true }],
       "operator-assignment": [warn, "always"],
       "prefer-destructuring": off,
+      "prefer-template": warn,
+      curly: [error, "multi-line"],
+      eqeqeq: [error],
 
       "@typescript-eslint/ban-ts-comment": [
         error,
