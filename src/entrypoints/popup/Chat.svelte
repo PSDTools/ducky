@@ -1,36 +1,54 @@
 <script lang="ts">
   import Wrapper from "./Wrapper.svelte";
   import { Send } from "lucide-svelte";
-  let question = $state<string>();
+  let question = $state<string>("");
+  let currentQuestion = $state<string>("");
   let response = $state<string>();
+  let loading = $state<boolean>(false);
 </script>
 
 <Wrapper pageTitle="Ducky Chat">
-  <p id="response">{response}</p>
+  <p id="response" class:loading>
+    {loading ? "I'm thinking... Quack!" : response}
+  </p>
   <form
     class="form"
     onsubmit={(event) => {
-      // prettier-ignore
-      setTimeout(() => { response = "Loading." }, 250);
-      // prettier-ignore
-      setTimeout(() => { response = "Loading.."; }, 500);
-      // prettier-ignore
-      setTimeout(() => { response = "Loading..."; }, 750);
-      // prettier-ignore
-      setTimeout(() => { response = "Loading.."; }, 1000);
-      // prettier-ignore
-      setTimeout(() => { response = "Loading."; }, 1250);
-      // prettier-ignore
-      setTimeout(() => { response = "Loading.."; }, 1500);
-      // prettier-ignore
-      setTimeout(() => { response = "Loading..."; }, 1750);
-      if (question == "What do you do?") {
-        // prettier-ignore
-        setTimeout(() => { response = "I am a AI assistant that will help with digital literacy and cyber security! Quack!"; }, 2000);
-      } else if (question == "Tell me more about how you can help.") {
-        // prettier-ignore
-        setTimeout(() => { response = "I can help by detecting AI images, I can fact check websites, and let you know if an email you got is phishing! Quack!"; }, 2000);
-      }
+      setTimeout(() => {
+        switch (currentQuestion.trim()) {
+          case "What do you do?": {
+            response =
+              "I am an AI assistant that will help with digital literacy and cyber security! Quack!";
+
+            break;
+          }
+
+          case "Tell me more about how you can help.": {
+            response =
+              "I can help by detecting AI images, I can fact-check websites, and let you know if an email you got is phishing! Quack!";
+
+            break;
+          }
+
+          case "": {
+            response = "Please enter a question. Quack!";
+
+            break;
+          }
+
+          default: {
+            response = "I'm sorry, I didn't understand that. Quack!";
+
+            break;
+          }
+        }
+
+        loading = false;
+      }, 2000);
+
+      loading = true;
+      currentQuestion = question;
+      question = "";
       event.preventDefault();
     }}
   >
@@ -46,6 +64,25 @@
 </Wrapper>
 
 <style>
+  @keyframes loadingDots {
+    0%,
+    100% {
+      content: ".";
+    }
+    33% {
+      content: "..";
+    }
+    66% {
+      content: "...";
+    }
+  }
+
+  .loading::after {
+    content: ".";
+    display: inline-block;
+    animation: loadingDots 1.5s infinite;
+  }
+
   .textbox {
     color: black;
     width: 70%;
