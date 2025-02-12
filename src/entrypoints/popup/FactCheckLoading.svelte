@@ -18,7 +18,7 @@
       {randomMessages[Math.floor(Math.random() * randomMessages.length)]}
     </span>
 
-    <div style:--duck-logo="url({duckyLogo});" class="loader"></div>
+    <div style:--duck-logo="url({duckyLogo})" class="loader"></div>
   </div>
 </Wrapper>
 
