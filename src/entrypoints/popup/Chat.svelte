@@ -1,7 +1,11 @@
 <script lang="ts">
   import Wrapper from "./Wrapper.svelte";
   import { Send } from "lucide-svelte";
-  let question = $state<string>("");
+
+  const params = new URLSearchParams(window.location.search);
+  console.log(window.location.search);
+
+  let question = $state<string>(params.get("q") ?? "");
   let currentQuestion = $state<string>("");
   let response = $state<string>();
   let loading = $state<boolean>(false);
@@ -28,6 +32,8 @@
               "I can help by detecting AI images, I can fact-check websites, and let you know if an email you got is phishing! Quack!";
 
             break;
+          }
+          case "": {
           }
 
           case "": {

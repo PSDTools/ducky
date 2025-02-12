@@ -10,7 +10,7 @@
     <p>This message may be from quacks!</p>
 
     <div class="open">
-      <a class="chat-button" href="https://chatgpt.com">
+      <a class="chat-button" href="?q=How%20can%20I%20spot%20phishing%3F#/chat">
         How can I spot phishing?
       </a>
     </div>

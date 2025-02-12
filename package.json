@@ -30,6 +30,7 @@
     "@tsconfig/svelte": "^5.0.4",
     "@types/chrome": "^0.0.299",
     "@types/eslint-config-prettier": "^6.11.3",
+    "@wxt-dev/auto-icons": "^1.0.2",
     "@wxt-dev/module-svelte": "^2.0.3",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",

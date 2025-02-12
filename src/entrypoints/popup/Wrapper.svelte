@@ -22,7 +22,7 @@
   }: Props = $props();
 </script>
 
-<div>
+<div class="wrapper">
   <header class="header">
     <div class={{ "logo-button": true, "home-button": isHome }}>
       {#snippet logo()}
@@ -132,5 +132,9 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .wrapper {
+    height: 25rem;
   }
 </style>

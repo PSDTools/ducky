@@ -14,7 +14,6 @@
     {/snippet}
 
     {@render button("Chat", "#/chat")}
-    {@render button("PII Masker", "#/pii-masker")}
     {@render button("Fact Checker", "#/fact-check")}
     {@render button("Phishing Detector", "#/phishing")}
   </div>

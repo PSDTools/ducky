@@ -8,7 +8,6 @@
   import HomeComponent from "./Home.svelte";
   import PhishingComponent from "./Phishing.svelte";
   import FactCheckComponent from "./FactCheck.svelte";
-  import PIIMaskerComponent from "./PIIMasker.svelte";
   import ChatComponent from "./Chat.svelte";
   import FactCheckLoadingComponent from "./FactCheckLoading.svelte";
 
@@ -17,7 +16,6 @@
     Phishing: "phishing",
     FactCheck: "fact-check",
     FactCheckLoading: "fact-check-loading",
-    PIIMasker: "pii-masker",
     Chat: "chat",
     Any: "any",
   } as const;
@@ -44,11 +42,6 @@
       name: RouteName.FactCheckLoading,
       path: `/${RouteName.FactCheckLoading}`,
       component: FactCheckLoadingComponent,
-    },
-    {
-      name: RouteName.PIIMasker,
-      path: `/${RouteName.PIIMasker}`,
-      component: PIIMaskerComponent,
     },
     {
       name: RouteName.Chat,
