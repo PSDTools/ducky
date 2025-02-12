@@ -2,19 +2,23 @@
   import Wrapper from "./Wrapper.svelte";
   import duckyLogo from "../../assets/ducky.svg";
   const randomMessages = [
-    "Verifying source...",
-    "Feeding duck fact checkers..",
-    "Making sure they aren't quacks...",
+    "Verifying sources",
+    "Feeding ducks",
+    "Checking for quacks",
+    "Scouring the pond for biases",
+    "Checking for goose influence",
+    "Gathering the flock",
+    "Flying the coop",
   ];
 </script>
 
 <Wrapper pageTitle="Fact Checker">
   <div class="fact-wrapper">
-    <div class="loading-message">
+    <span class="loading-message">
       {randomMessages[Math.floor(Math.random() * randomMessages.length)]}
-    </div>
+    </span>
 
-    <div style="--duck-logo: url({duckyLogo});" class="loader"></div>
+    <div style:--duck-logo="url({duckyLogo});" class="loader"></div>
   </div>
 </Wrapper>
 
@@ -27,12 +31,35 @@
     gap: 3rem;
   }
 
+  @keyframes loadingDots {
+    0%,
+    100% {
+      content: "";
+    }
+    25% {
+      content: ".";
+    }
+    50% {
+      content: "..";
+    }
+    75% {
+      content: "...";
+    }
+  }
+
   .loading-message {
     font-size: 15px;
     font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &::after {
+      content: "";
+      width: 3ch;
+      display: inline-block;
+      animation: loadingDots 1.5s infinite;
+    }
   }
 
   .loader {
