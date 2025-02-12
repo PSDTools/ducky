@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import Wrapper from "./Wrapper.svelte";
   import duckyLogo from "../../assets/ducky.svg";
   const randomMessages = [
@@ -10,6 +11,12 @@
     "Gathering the flock",
     "Flying the coop",
   ];
+
+  onMount(() => {
+    setTimeout(() => {
+      globalThis.location.hash = "#real";
+    }, 3000);
+  });
 </script>
 
 <Wrapper pageTitle="Fact Checker">

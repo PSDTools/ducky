@@ -10,12 +10,14 @@
   import FactCheckComponent from "./FactCheck.svelte";
   import ChatComponent from "./Chat.svelte";
   import FactCheckLoadingComponent from "./FactCheckLoading.svelte";
+  import FactsChecked from "./FactsChecked.svelte";
 
   const RouteName = {
     Home: "home",
     Phishing: "phishing",
     FactCheck: "fact-check",
     FactCheckLoading: "fact-check-loading",
+    FactsChecked: "real",
     Chat: "chat",
     Any: "any",
   } as const;
@@ -42,6 +44,11 @@
       name: RouteName.FactCheckLoading,
       path: `/${RouteName.FactCheckLoading}`,
       component: FactCheckLoadingComponent,
+    },
+    {
+      name: RouteName.FactsChecked,
+      path: `/${RouteName.FactsChecked}`,
+      component: FactsChecked,
     },
     {
       name: RouteName.Chat,
