@@ -9,115 +9,50 @@
 </script>
 
 <Wrapper pageTitle="Fact Checker">
-  <div class="loading-message">
-    {randomMessages[Math.floor(Math.random() * randomMessages.length)]}
-  </div>
-
-  <div class="spinner-container">
-    <div class="spinner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+  <div class="fact-wrapper">
+    <div class="loading-message">
+      {randomMessages[Math.floor(Math.random() * randomMessages.length)]}
     </div>
-    <img class="duck" alt="Duck" src={duckyLogo} />
+
+    <div style="--duck-logo: url({duckyLogo});" class="loader"></div>
   </div>
 </Wrapper>
 
 <style>
+  .fact-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+
   .loading-message {
     font-size: 15px;
     font-weight: bold;
-    margin-bottom: 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .spinner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  .loader {
+    width: 160px;
+    aspect-ratio: 1.154;
+    background:
+      no-repeat var(--duck-logo) 50% 0,
+      no-repeat var(--duck-logo) 0 100%,
+      no-repeat var(--duck-logo) 100% 100%;
+    background-size: 35% calc(35% * 1.154);
+    animation: l16 1s infinite;
   }
 
-  .spinner {
-    display: flex;
-    position: relative;
-    width: 128px;
-    height: 128px;
-  }
-
-  .spinner div {
-    width: 24px;
-    height: 24px;
-    background-color: #818181;
-    border-radius: 50%;
-    position: absolute;
-    animation: fade 1.2s infinite ease-in-out;
-  }
-
-  .spinner div:nth-child(1) {
-    top: 0;
-    left: 50%;
-    animation-delay: -1.1s;
-  }
-  .spinner div:nth-child(2) {
-    top: 14%;
-    left: 85%;
-    animation-delay: -1s;
-  }
-  .spinner div:nth-child(3) {
-    top: 50%;
-    left: 100%;
-    animation-delay: -0.9s;
-  }
-  .spinner div:nth-child(4) {
-    top: 85%;
-    left: 85%;
-    animation-delay: -0.8s;
-  }
-  .spinner div:nth-child(5) {
-    top: 100%;
-    left: 50%;
-    animation-delay: -0.7s;
-  }
-  .spinner div:nth-child(6) {
-    top: 85%;
-    left: 14%;
-    animation-delay: -0.6s;
-  }
-  .spinner div:nth-child(7) {
-    top: 50%;
-    left: 0;
-    animation-delay: -0.5s;
-  }
-  .spinner div:nth-child(8) {
-    top: 14%;
-    left: 14%;
-    animation-delay: -0.4s;
-  }
-
-  @keyframes fade {
-    0%,
+  @keyframes l16 {
+    50%,
     100% {
-      opacity: 1;
+      background-position:
+        100% 100%,
+        50% 0,
+        0 100%;
     }
-    50% {
-      opacity: 0.3;
-    }
-  }
-
-  .duck {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
   }
 </style>
