@@ -119,9 +119,6 @@ export default ts.config(
       "@typescript-eslint/no-unsafe-call": off,
       "unicorn/filename-case": off,
 
-      // Security Vulnerability
-      "svelte/no-target-blank": warn,
-
       // Best Practices
       "prefer-const": off,
       "svelte/block-lang": [warn, { script: "ts" }],
