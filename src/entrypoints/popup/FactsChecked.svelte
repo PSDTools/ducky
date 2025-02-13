@@ -22,16 +22,39 @@
       <!-- 8-ball? -->
       {factual ? "Likely true" : "Possibly a falsehood"}
     </span>
+
+    <details class="details">
+      <summary>Sources</summary>
+      <ul>
+        <li>
+          <a
+            href="https://www.channelfutures.com/mergers-acquisitions/wwt-to-make-acquisition-of-var-softchoice-in-cash-deal"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Channel Futures Article
+          </a>
+        </li>
+      </ul>
+    </details>
   </div>
 </Wrapper>
 
 <style>
+  .details {
+    width: 100%;
+
+    & summary {
+      font-size: 1.4rem;
+    }
+  }
+
   .fact-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 1.5rem;
   }
 
   .factuality {
@@ -42,7 +65,7 @@
     display: block;
     margin: 10px auto;
     max-width: 80%;
-    max-height: 250px;
+    max-height: 150px;
   }
 
   .circle {
