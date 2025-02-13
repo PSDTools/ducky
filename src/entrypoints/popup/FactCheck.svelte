@@ -3,77 +3,92 @@
   import RadioButton from "./RadioButton.svelte";
   import Wrapper from "./Wrapper.svelte";
 
-  let currentTabText = "Loading...";
+  let currentTab = $state<chrome.tabs.Tab>();
+  let form = $state<HTMLFormElement>();
 
   onMount(async () => {
-    const [currentTab] = await browser.tabs.query({
+    [currentTab] = await browser.tabs.query({
       active: true,
       currentWindow: true,
     });
-
-    currentTabText = currentTab.url ?? "Unknown Tab";
   });
 </script>
 
 <Wrapper pageTitle="Fact Checker">
-  <form>
+  <form
+    bind:this={form}
+    action="#fact-check-loading"
+    method="get"
+    onsubmit={(event: SubmitEvent) => {
+      const formData = new FormData(form);
+      const answer = formData.get("answer");
+
+      if (answer === "current") {
+        globalThis.location.hash = "#fact-check-loading";
+      } else {
+        const url = formData.get("url") as string;
+        globalThis.location.href = `#fact-check-loading?url=${url}`;
+      }
+
+      event.preventDefault();
+    }}
+  >
     <fieldset>
       <legend>What would you like to fact check?</legend>
       <div>
-        <div>
-          <RadioButton id="current" name="answer" value="current" />
-          <label class="option" for="current">Current Website</label>
+        <div class="option-wrapper">
+          <div>
+            <RadioButton id="current" name="answer" checked value="current" />
+            <label class="option" for="current">Current Website</label>
+          </div>
+          <p class="radio-indent current-tab-text">
+            {currentTab?.url ?? "Unknown Tab"}
+          </p>
         </div>
-        <div class="other-input">
-          <p>{currentTabText}</p>
-        </div>
-        <div>
-          <div class="radio-other-container">
+        <div class="option-wrapper">
+          <div>
             <RadioButton id="other" name="answer" value="other" />
             <label class="option" for="other">Other Website</label>
           </div>
-          <div class="other-input">
-            <input placeholder="Enter website URL" type="text" />
+          <div class="radio-indent other-input">
+            <input name="url" placeholder="Enter website URL" type="text" />
           </div>
         </div>
       </div>
     </fieldset>
     <div class="card">
-      {#snippet button(name: string, route: string)}
-        <a href={route}>{name}</a>
-      {/snippet}
-      {@render button("Submit", "#/fact-check-loading")}
+      <button type="submit">Check Website</button>
     </div>
   </form>
 </Wrapper>
 
 <style>
+  .radio-indent {
+    margin-left: 40px;
+  }
+
   .option {
     cursor: pointer;
     font-size: 16px;
   }
-  .radio-other-container {
+
+  .option-wrapper {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  .other-input {
-    margin-left: 24px;
-  }
+
   .other-input input[type="text"] {
     background: transparent;
-    border: none;
-    border-bottom: 1px solid #000;
-    outline: none;
-    padding: 4px 0;
-    width: 100%;
+    border-radius: 1rem;
+    width: calc(100% - 40px);
+    border: 1px solid;
   }
 
   /* New styles for scaling current tab text without taking more than two lines */
-  .other-input p {
+  .current-tab-text {
     /* Font size scales between 14px and 18px based on the viewport width */
     font-size: clamp(14px, 2vw, 18px);
-    margin: 0;
     overflow: hidden;
     display: -webkit-box;
     line-clamp: 2;
@@ -89,7 +104,7 @@
     padding: 1rem;
     text-align: center;
 
-    & > a {
+    & > button {
       width: 100%;
       background-color: #e2c100;
       color: #242424;

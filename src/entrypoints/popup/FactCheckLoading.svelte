@@ -13,9 +13,13 @@
   ];
 
   onMount(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       globalThis.location.hash = "#real";
-    }, 3000);
+    }, 4550);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   });
 </script>
 
