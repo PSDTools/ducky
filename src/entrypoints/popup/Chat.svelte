@@ -71,7 +71,21 @@
   </form>
 
   <div class="open">
-    <a class="chat-button" href="https://chatgpt.com">Open Chat in Browser</a>
+    <a
+      class="chat-button"
+      href="https://chatgpt.com"
+      onclick={(event) => {
+        window.open("https://chatgpt.com", "_blank");
+
+        event.stopPropagation();
+        event.preventDefault();
+
+        window.close();
+      }}
+      target="_blank"
+    >
+      Open Chat in Browser
+    </a>
   </div>
 </Wrapper>
 

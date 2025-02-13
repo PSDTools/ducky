@@ -24,13 +24,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 1rem;
     padding: 1rem;
     text-align: center;
+    height: 17.5rem;
 
     & > .link-button {
       width: 100%;
+      height: 15%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       background-color: #e2c100;
       color: #242424;
       transition:
