@@ -17,10 +17,6 @@ export default defineConfig({
       cssMinify: "lightningcss",
     },
 
-    css: {
-      transformer: "lightningcss",
-    },
-
     plugins: [
       htmlMinifier({
         minify: true,

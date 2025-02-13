@@ -1,0 +1,14 @@
+diff --git a/dist/core/resolve-config.mjs b/dist/core/resolve-config.mjs
+index 20f07289dc548c7073efe96dd7de8be100d4eb0c..766239ce94e04486ac7e789020665a596204bda0 100644
+--- a/dist/core/resolve-config.mjs
++++ b/dist/core/resolve-config.mjs
+@@ -20,9 +20,6 @@ export async function resolveConfig(inlineConfig, command) {
+       name: "wxt",
+       cwd: inlineConfig.root ?? process.cwd(),
+       rcFile: false,
+-      jitiOptions: {
+-        esmResolve: true
+-      }
+     });
+     if (inlineConfig.configFile && metadata.layers?.length === 0) {
+       throw Error(`Config file "${inlineConfig.configFile}" not found`);

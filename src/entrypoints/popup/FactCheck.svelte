@@ -5,11 +5,13 @@
 
   let currentTabText = "Loading...";
 
-  onMount(() => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const [currentTab] = tabs;
-      currentTabText = currentTab.url ?? "Unknown Tab";
+  onMount(async () => {
+    const [currentTab] = await browser.tabs.query({
+      active: true,
+      currentWindow: true,
     });
+
+    currentTabText = currentTab.url ?? "Unknown Tab";
   });
 </script>
 
