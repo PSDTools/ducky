@@ -3,6 +3,7 @@
     id: string;
     name: string;
     value: string;
+    checked?: boolean;
   }
 
   const props: Props = $props();
