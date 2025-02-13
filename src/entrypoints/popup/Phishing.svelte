@@ -11,15 +11,17 @@
 
     <div class="open">
       {#snippet button()}
-        {@const parameters = new URLSearchParams({
-          q: "How can I spot phishing?",
-        })}
-
         <!--
           So, technically, there isn't a search passed here, just a fragment.
           But... the router handles it, so we just do some hacks on the chat page.
         -->
-        <a class="chat-button" href={`#/chat?${parameters}`}>
+        <a
+          class="chat-button"
+          data-query={JSON.stringify({
+            q: "How can I spot phishing?",
+          })}
+          href="#/chat"
+        >
           How can I spot phishing?
         </a>
       {/snippet}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import BlankAnchor from "./BlankAnchor.svelte";
   import Wrapper from "./Wrapper.svelte";
 
   let factuality = $state(96);
@@ -27,13 +28,11 @@
       <summary>Sources</summary>
       <ul>
         <li>
-          <a
+          <BlankAnchor
             href="https://www.channelfutures.com/mergers-acquisitions/wwt-to-make-acquisition-of-var-softchoice-in-cash-deal"
-            rel="noopener noreferrer"
-            target="_blank"
           >
             Channel Futures Article
-          </a>
+          </BlankAnchor>
         </li>
       </ul>
     </details>
