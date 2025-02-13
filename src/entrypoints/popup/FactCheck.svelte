@@ -15,24 +15,7 @@
 </script>
 
 <Wrapper pageTitle="Fact Checker">
-  <form
-    bind:this={form}
-    action="#fact-check-loading"
-    method="get"
-    onsubmit={(event: SubmitEvent) => {
-      const formData = new FormData(form);
-      const answer = formData.get("answer");
-
-      if (answer === "current") {
-        globalThis.location.hash = "#fact-check-loading";
-      } else {
-        const url = formData.get("url") as string;
-        globalThis.location.href = `#fact-check-loading?url=${url}`;
-      }
-
-      event.preventDefault();
-    }}
-  >
+  <form bind:this={form} action="#fact-check-loading" method="get">
     <fieldset>
       <legend>What would you like to fact check?</legend>
       <div>
@@ -57,7 +40,9 @@
       </div>
     </fieldset>
     <div class="card">
-      <button type="submit">Check Website</button>
+      <button data-name="fact-check-loading" data-router-link type="submit">
+        Check Website
+      </button>
     </div>
   </form>
 </Wrapper>

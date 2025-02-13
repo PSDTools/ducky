@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import Wrapper from "./Wrapper.svelte";
   import duckyLogo from "../../assets/ducky.svg";
+  import { useRouter } from "@dvcol/svelte-simple-router";
   const randomMessages = [
     "Verifying sources",
     "Feeding ducks",
@@ -12,9 +13,11 @@
     "Flying the coop",
   ];
 
+  const router = useRouter();
+
   onMount(() => {
     const timeout = setTimeout(() => {
-      globalThis.location.hash = "#real";
+      void router.push({ name: "real" });
     }, 4550);
 
     return () => {
