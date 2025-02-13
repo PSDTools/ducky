@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { links } from "@dvcol/svelte-simple-router";
   import type { Snippet } from "svelte";
 
   import backButton from "../../assets/back-button.svg";
@@ -22,7 +23,7 @@
   }: Props = $props();
 </script>
 
-<div class="wrapper">
+<div class="wrapper" use:links>
   <header class="header">
     <div class={{ "logo-button": true, "home-button": isHome }}>
       {#snippet logo()}

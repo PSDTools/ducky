@@ -2,10 +2,11 @@
   import Wrapper from "./Wrapper.svelte";
   import { Send } from "lucide-svelte";
 
-  const params = new URLSearchParams(window.location.search);
-  console.log(window.location.search);
+  const parameters = new URLSearchParams(
+    globalThis.location.hash.split("?")[1],
+  );
 
-  let question = $state<string>(params.get("q") ?? "");
+  let question = $state<string>(parameters.get("q") ?? "");
   let currentQuestion = $state<string>("");
   let response = $state<string>();
   let loading = $state<boolean>(false);
@@ -33,7 +34,12 @@
 
             break;
           }
-          case "": {
+
+          case "How can I spot phishing?": {
+            response =
+              "You can spot phishing by checking for unexpected requests for personal information, false sender info, suspicious links, and spelling errors. Quack!";
+
+            break;
           }
 
           case "": {
@@ -73,18 +79,21 @@
   @keyframes loadingDots {
     0%,
     100% {
+      content: "";
+    }
+    25% {
       content: ".";
     }
-    33% {
+    50% {
       content: "..";
     }
-    66% {
+    75% {
       content: "...";
     }
   }
 
   .loading::after {
-    content: ".";
+    content: "";
     display: inline-block;
     animation: loadingDots 1.5s infinite;
   }

@@ -10,9 +10,21 @@
     <p>This message may be from quacks!</p>
 
     <div class="open">
-      <a class="chat-button" href="?q=How%20can%20I%20spot%20phishing%3F#/chat">
-        How can I spot phishing?
-      </a>
+      {#snippet button()}
+        {@const parameters = new URLSearchParams({
+          q: "How can I spot phishing?",
+        })}
+
+        <!--
+          So, technically, there isn't a search passed here, just a fragment.
+          But... the router handles it, so we just do some hacks on the chat page.
+        -->
+        <a class="chat-button" href={`#/chat?${parameters}`}>
+          How can I spot phishing?
+        </a>
+      {/snippet}
+
+      {@render button()}
     </div>
   </div>
 </Wrapper>
