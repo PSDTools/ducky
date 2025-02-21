@@ -29,9 +29,16 @@
       <ul>
         <li>
           <BlankAnchor
-            href="https://www.channelfutures.com/mergers-acquisitions/wwt-to-make-acquisition-of-var-softchoice-in-cash-deal"
+            href="https://www.wwt.com/press-release/wwt-has-entered-into-a-definitive-agreement-to-acquire-softchoice"
           >
-            Channel Futures Article
+            Official Press Release
+          </BlankAnchor>
+        </li>
+        <li>
+          <BlankAnchor
+            href="https://www.wwt.com/news/wwt-to-buy-softchoice-in-dollar125b-blockbuster-heres-what-to-know"
+          >
+            Official Blogpost
           </BlankAnchor>
         </li>
       </ul>
