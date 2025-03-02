@@ -53,7 +53,7 @@
   </form>
 
   <div class="open">
-    <BlankAnchor class="chat-button" href="https://chatgpt.com">
+    <BlankAnchor class="chat-button" href="https://ducky.psdr3.org/">
       Open Chat in Browser
     </BlankAnchor>
   </div>
