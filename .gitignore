@@ -24,3 +24,6 @@ web-ext.config.ts
 *.sw?
 
 .turbo
+
+# API keys
+.env

@@ -2,13 +2,20 @@
   import BlankAnchor from "./BlankAnchor.svelte";
   import Wrapper from "./Wrapper.svelte";
   import { Send } from "lucide-svelte";
+  import { GoogleGenerativeAI } from "@google/generative-ai";
+
+  const key = import.meta.env.VITE_GEMINI_API_KEY;
+
+  const genAI = new GoogleGenerativeAI(key);
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  // console.log(result.response.text());
 
   const parameters = new URLSearchParams(
     globalThis.location.hash.split("?")[1],
   );
 
   let question = $state<string>(parameters.get("q") ?? "");
-  let currentQuestion = $state<string>("");
+  // let currentQuestion = $state<string>("");
   let response = $state<string>();
   let loading = $state<boolean>(false);
 </script>
@@ -21,46 +28,14 @@
     class="form"
     onsubmit={(event) => {
       setTimeout(() => {
-        switch (currentQuestion.trim()) {
-          case "What do you do?": {
-            response =
-              "I am an AI assistant that will help with digital literacy and cyber security! Quack!";
-
-            break;
-          }
-
-          case "Tell me more about how you can help.": {
-            response =
-              "I can help by detecting AI images, I can fact-check websites, and let you know if an email you got is phishing! Quack!";
-
-            break;
-          }
-
-          case "How can I spot phishing?": {
-            response =
-              "You can spot phishing by checking for unexpected requests for personal information, false sender info, suspicious links, and spelling errors. Quack!";
-
-            break;
-          }
-
-          case "": {
-            response = "Please enter a question. Quack!";
-
-            break;
-          }
-
-          default: {
-            response = "I'm sorry, I didn't understand that. Quack!";
-
-            break;
-          }
-        }
-
-        loading = false;
+        void (async () => {
+          const airesponse = await model.generateContent(question);
+          response = airesponse.response.text();
+        })();
+        loading = true;
       }, 2000);
 
       loading = true;
-      currentQuestion = question;
       question = "";
       event.preventDefault();
     }}
