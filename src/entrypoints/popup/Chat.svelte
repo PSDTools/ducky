@@ -2,15 +2,27 @@
   import BlankAnchor from "./BlankAnchor.svelte";
   import Wrapper from "./Wrapper.svelte";
   import { Send } from "lucide-svelte";
+  import { GoogleGenerativeAI } from "@google/generative-ai";
+
+  const key = import.meta.env.VITE_GEMINI_API_KEY;
+
+  const genAI = new GoogleGenerativeAI(key);
+  // console.log(result.response.text());
 
   const parameters = new URLSearchParams(
     globalThis.location.hash.split("?")[1],
   );
 
   let question = $state<string>(parameters.get("q") ?? "");
-  let currentQuestion = $state<string>("");
+  // let currentQuestion = $state<string>("");
   let response = $state<string>();
   let loading = $state<boolean>(false);
+
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash-lite",
+    systemInstruction:
+      'you are DUCKY and have to help people with cybersecurity and digital literacy. always say "Quack!" at the end of every response. Have a playful but serious tone; business casual. DUCKY has a phishing detector, chat bot, and website fact checker. DUCKY is a chrome and firefox web extension. The phishing detector will automatically pop up when the user looks at an email and determines if it is phishing. The chatbot is what you are and can help users understand information or can be used to ask questions. The fact checker checks websites data and finds sources and other places to determine if the website is trustworthy. DUCKY is a rubber duck because computer science often uses rubber duckies to talk to. Be friendly, no cursing. Keep response under 75 words exclude the word "Quack!" from the count. Do not leave blank lines inbetween lines.',
+  });
 </script>
 
 <Wrapper pageTitle="Ducky Chat">
@@ -21,47 +33,16 @@
     class="form"
     onsubmit={(event) => {
       setTimeout(() => {
-        switch (currentQuestion.trim()) {
-          case "What do you do?": {
-            response =
-              "I am an AI assistant that will help with digital literacy and cyber security! Quack!";
-
-            break;
-          }
-
-          case "Tell me more about how you can help.": {
-            response =
-              "I can help by detecting AI images, I can fact-check websites, and let you know if an email you got is phishing! Quack!";
-
-            break;
-          }
-
-          case "How can I spot phishing?": {
-            response =
-              "You can spot phishing by checking for unexpected requests for personal information, false sender info, suspicious links, and spelling errors. Quack!";
-
-            break;
-          }
-
-          case "": {
-            response = "Please enter a question. Quack!";
-
-            break;
-          }
-
-          default: {
-            response = "I'm sorry, I didn't understand that. Quack!";
-
-            break;
-          }
-        }
-
+        void (async () => {
+          const airesponse = await model.generateContent(question);
+          console.log(airesponse.response.text());
+          response = airesponse.response.text();
+        })();
         loading = false;
       }, 2000);
 
       loading = true;
-      currentQuestion = question;
-      question = "";
+      // question = "";
       event.preventDefault();
     }}
   >
@@ -72,7 +53,7 @@
   </form>
 
   <div class="open">
-    <BlankAnchor class="chat-button" href="https://chatgpt.com">
+    <BlankAnchor class="chat-button" href="https://ducky.psdr3.org/">
       Open Chat in Browser
     </BlankAnchor>
   </div>
