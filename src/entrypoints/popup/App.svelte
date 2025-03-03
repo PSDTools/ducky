@@ -67,7 +67,7 @@
     },
     {
       name: RouteName.FactsCheckedFake,
-      path: `/${RouteName.FactsChecked}`,
+      path: `/${RouteName.FactsCheckedFake}`,
       component: FactsCheckedFake,
     },
   ] as const satisfies Route<RouteNames>[];
