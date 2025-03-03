@@ -21,7 +21,7 @@
 
     <span class="factuality">
       <!-- 8-ball? -->
-      {factual ? "Likely true" : "Possibly a falsehood"}
+      {factual ? "Likely True" : "Likely Fake"}
     </span>
 
     <details class="details">
@@ -29,16 +29,9 @@
       <ul>
         <li>
           <BlankAnchor
-            href="https://www.wwt.com/press-release/wwt-has-entered-into-a-definitive-agreement-to-acquire-softchoice"
+            href="https://reutersinstitute.politics.ox.ac.uk/news/onions-head-writer-takes-satire-very-seriously-our-mandate-just-be-funny "
           >
-            Official Press Release
-          </BlankAnchor>
-        </li>
-        <li>
-          <BlankAnchor
-            href="https://www.wwt.com/news/wwt-to-buy-softchoice-in-dollar125b-blockbuster-heres-what-to-know"
-          >
-            Official Blogpost
+            Article on Source
           </BlankAnchor>
         </li>
       </ul>

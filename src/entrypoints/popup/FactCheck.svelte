@@ -49,7 +49,7 @@
 
 <style>
   .radio-indent {
-    margin-left: 40px;
+    margin-left: 24px;
   }
 
   .option {
@@ -74,9 +74,9 @@
   .current-tab-text {
     /* Font size scales between 14px and 18px based on the viewport width */
     font-size: clamp(14px, 2vw, 18px);
-    overflow: hidden;
+    overflow: visible;
     display: -webkit-box;
-    line-clamp: 2;
+    line-clamp: 4;
     display: flex;
     flex-direction: column;
   }
