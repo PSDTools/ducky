@@ -13,26 +13,28 @@
     "Flying the coop",
   ];
   let currentTab = $state<chrome.tabs.Tab>();
-  var nextPage: string;
+  var nextPage: string = $state("fake");
 
   onMount(async () => {
     [currentTab] = await browser.tabs.query({
       active: true,
       currentWindow: true,
     });
+
+    if (
+      currentTab?.url ==
+      "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m02/cisco-expands-partnership-with-nvidia-to-accelerate-ai-adoption-in-the-enterprise.html"
+    ) {
+      console.log("this should run");
+      nextPage = "real";
+    } else if (
+      currentTab?.url ==
+      "https://theonion.com/lockheed-martin-develops-giant-tactical-rubber-spider/"
+    ) {
+      console.log("this should not run :(");
+      nextPage = "fake";
+    }
   });
-  if (
-    currentTab?.url ==
-    "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m02/cisco-expands-partnership-with-nvidia-to-accelerate-ai-adoption-in-the-enterprise.html"
-  ) {
-    // Handle specific URL case
-    nextPage = "real";
-  } else if (
-    currentTab?.url ==
-    "https://theonion.com/lockheed-martin-develops-giant-tactical-rubber-spider/"
-  ) {
-    nextPage = "fake";
-  }
 </script>
 
 <Wrapper pageTitle="Fact Checker">
