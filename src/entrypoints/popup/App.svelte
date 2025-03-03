@@ -11,6 +11,7 @@
   import ChatComponent from "./Chat.svelte";
   import FactCheckLoadingComponent from "./FactCheckLoading.svelte";
   import FactsChecked from "./FactsChecked.svelte";
+  import FactsCheckedFake from "./FactsCheckedFake.svelte";
 
   const RouteName = {
     Home: "home",
@@ -18,6 +19,7 @@
     FactCheck: "fact-check",
     FactCheckLoading: "fact-check-loading",
     FactsChecked: "real",
+    FactsCheckedFake: "fake",
     Chat: "chat",
     Any: "any",
   } as const;
@@ -50,18 +52,23 @@
       path: `/${RouteName.FactsChecked}`,
       component: FactsChecked,
     },
+
     {
       name: RouteName.Chat,
       path: `/${RouteName.Chat}`,
       component: ChatComponent,
     },
-
     {
       name: RouteName.Any,
       path: "*",
       redirect: {
         name: RouteName.Home,
       },
+    },
+    {
+      name: RouteName.FactsCheckedFake,
+      path: `/${RouteName.FactsChecked}`,
+      component: FactsCheckedFake,
     },
   ] as const satisfies Route<RouteNames>[];
 
