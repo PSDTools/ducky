@@ -1,5 +1,8 @@
 {
   "svelte.enable-ts-plugin": true,
   "eslint.validate": ["typescript", "javascript", "svelte"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "Fitz"
+  ]
 }

@@ -4,10 +4,8 @@
   import { delay } from "./utils.ts";
   import { onMount } from "svelte";
   const randomMessages = [
-    "Verifying sources",
     "Feeding ducks",
-    "Checking for quacks",
-    "Scouring the pond for biases",
+    "Scanning for phishy content",
     "Checking for goose influence",
     "Gathering the flock",
     "Flying the coop",
@@ -23,13 +21,15 @@
     //Implement phishing email logic here
     if (
       currentTab?.url ==
-      "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m02/cisco-expands-partnership-with-nvidia-to-accelerate-ai-adoption-in-the-enterprise.html"
-    ) {
-      nextPage = "real";
-    } else if (
-      currentTab?.url ==
       "https://mail.google.com/mail/u/0/#label/Email/FMfcgzQZTVrVkqWGtfcmgxFFkPHsZChW"
     ) {
+      //Eli Email
+      nextPage = "phishing-real";
+    } else if (
+      currentTab?.url ==
+      "https://mail.google.com/mail/u/0/#label/Email/FMfcgzQZTCpQgxWHktWtFpvJvgTXPsNs"
+    ) {
+      //Fitz Email
       nextPage = "phishing";
     }
   });
