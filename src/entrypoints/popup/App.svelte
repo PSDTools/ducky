@@ -7,6 +7,8 @@
 
   import HomeComponent from "./Home.svelte";
   import PhishingComponent from "./Phishing.svelte";
+  import PhishingMenu from "./PhishingMenu.svelte";
+  import PhishingLoading from "./PhishingLoading.svelte";
   import FactCheckComponent from "./FactCheck.svelte";
   import ChatComponent from "./Chat.svelte";
   import FactCheckLoadingComponent from "./FactCheckLoading.svelte";
@@ -16,6 +18,8 @@
   const RouteName = {
     Home: "home",
     Phishing: "phishing",
+    PhishingMenu: "phishing-menu",
+    PhishingLoading: "phishing-loading",
     FactCheck: "fact-check",
     FactCheckLoading: "fact-check-loading",
     FactsChecked: "real",
@@ -36,6 +40,16 @@
       name: RouteName.Phishing,
       path: `/${RouteName.Phishing}`,
       component: PhishingComponent,
+    },
+    {
+      name: RouteName.PhishingMenu,
+      path: `/${RouteName.PhishingMenu}`,
+      component: PhishingMenu,
+    },
+    {
+      name: RouteName.PhishingLoading,
+      path: `/${RouteName.PhishingLoading}`,
+      component: PhishingLoading,
     },
     {
       name: RouteName.FactCheck,

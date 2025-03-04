@@ -15,7 +15,7 @@
 
     {@render button("Chat", "#/chat")}
     {@render button("Fact Checker", "#/fact-check")}
-    {@render button("Phishing Detector", "#/phishing")}
+    {@render button("Phishing Detector", "#/phishing-menu")}
   </div>
 </Wrapper>
 
