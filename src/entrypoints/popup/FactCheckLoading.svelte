@@ -34,7 +34,7 @@
     <!-- Implement script here to go to different pages based on url -->
 
     <Loading
-      loader={async (aborter) => await delay(4550, aborter)}
+      loader={async (aborter) => await delay(6500, aborter)}
       {randomMessages}
       url={nextPage}
     />

@@ -94,7 +94,7 @@
     all: unset;
     outline: revert;
     background-color: #e2c100;
-    color: inherit;
+    color: #242424;
 
     display: inline-flex;
     align-items: center;
