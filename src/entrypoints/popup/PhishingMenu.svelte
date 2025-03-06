@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import RadioButton from "./RadioButton.svelte";
   import Wrapper from "./Wrapper.svelte";
 
   let currentTab = $state<chrome.tabs.Tab>();
@@ -29,38 +28,6 @@
 </Wrapper>
 
 <style>
-  .radio-indent {
-    margin-left: 24px;
-  }
-
-  .option {
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  .option-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .other-input input[type="text"] {
-    background: transparent;
-    border-radius: 1rem;
-    width: calc(100% - 40px);
-    border: 1px solid;
-  }
-
-  /* New styles for scaling current tab text without taking more than two lines */
-  .current-tab-text {
-    /* Font size scales between 14px and 18px based on the viewport width */
-    font-size: clamp(14px, 2vw, 18px);
-    overflow: visible;
-    display: -webkit-box;
-    line-clamp: 4;
-    display: flex;
-    flex-direction: column;
-  }
   .card {
     display: flex;
     flex-direction: column;

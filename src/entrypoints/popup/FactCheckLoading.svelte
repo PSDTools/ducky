@@ -21,17 +21,9 @@
       currentWindow: true,
     });
 
-    if (
-      currentTab?.url ==
-      "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m02/cisco-expands-partnership-with-nvidia-to-accelerate-ai-adoption-in-the-enterprise.html"
-    ) {
-      console.log("this should run");
+    if ((currentTab.url ?? "").includes("https://newsroom.cisco.com")) {
       nextPage = "real";
-    } else if (
-      currentTab?.url ==
-      "https://theonion.com/lockheed-martin-develops-giant-tactical-rubber-spider/"
-    ) {
-      console.log("this should not run :(");
+    } else if ((currentTab.url ?? "").includes("https://theonion.com/")) {
       nextPage = "fake";
     }
   });

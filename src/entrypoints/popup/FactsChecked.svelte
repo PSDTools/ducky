@@ -2,7 +2,7 @@
   import BlankAnchor from "./BlankAnchor.svelte";
   import Wrapper from "./Wrapper.svelte";
 
-  let factuality = $state(96);
+  let factuality = $state(92);
   const factual = $derived(factuality > 50);
 </script>
 
@@ -37,23 +37,19 @@
       </ul>
     </details>
     <div class="open">
-      {#snippet button()}
-        <!--
+      <!--
           So, technically, there isn't a search passed here, just a fragment.
           But... the router handles it, so we just do some hacks on the chat page.
         -->
-        <a
-          class="chat-button"
-          data-query={JSON.stringify({
-            q: "How can I fact check sources on my own?",
-          })}
-          href="#/chat"
-        >
-          How can I fact check sources on my own?
-        </a>
-      {/snippet}
-
-      {@render button()}
+      <a
+        class="chat-button"
+        data-query={JSON.stringify({
+          q: "How can I fact check sources on my own?",
+        })}
+        href="#/chat"
+      >
+        How can I fact check sources on my own?
+      </a>
     </div>
   </div>
 </Wrapper>
@@ -61,6 +57,8 @@
 <style>
   .details {
     width: 100%;
+
+    padding-left: 2rem;
 
     & summary {
       font-size: 1.4rem;
@@ -108,7 +106,7 @@
   }
   .open {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 1rem;

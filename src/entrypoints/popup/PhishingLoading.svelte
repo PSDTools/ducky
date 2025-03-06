@@ -11,25 +11,24 @@
     "Flying the coop",
   ];
   let currentTab = $state<chrome.tabs.Tab>();
-  var nextPage: string = $state("real");
+  var nextPage: string = $state("phishing");
 
   onMount(async () => {
     [currentTab] = await browser.tabs.query({
       active: true,
       currentWindow: true,
     });
-    //Implement phishing email logic here
+
+    // Implement phishing email logic here
     if (
-      currentTab?.url ==
-      "https://mail.google.com/mail/u/0/#label/Email/FMfcgzQZTVrVkqWGtfcmgxFFkPHsZChW"
+      // Eli Email
+      (currentTab.url ?? "").includes("FMfcgzQZTVrVkqWGtfcmgxFFkPHsZChW")
     ) {
-      //Eli Email
       nextPage = "phishing-real";
     } else if (
-      currentTab?.url ==
-      "https://mail.google.com/mail/u/0/#label/Email/FMfcgzQZTCpQgxWHktWtFpvJvgTXPsNs"
+      // Fitz Email
+      (currentTab.url ?? "").includes("FMfcgzQZTCpQgxWHktWtFpvJvgTXPsNs")
     ) {
-      //Fitz Email
       nextPage = "phishing";
     }
   });

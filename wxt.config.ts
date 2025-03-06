@@ -1,10 +1,10 @@
+import path from "node:path";
 import { defineConfig } from "wxt";
 import htmlMinifier from "vite-plugin-html-minifier";
-import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -25,7 +25,7 @@ export default defineConfig({
   }),
 
   autoIcons: {
-    baseIconPath: resolve(__dirname, "src/assets/ducky.svg"),
+    baseIconPath: path.resolve(__dirname, "src/assets/ducky.svg"),
     grayscaleOnDevelopment: false,
   },
 });

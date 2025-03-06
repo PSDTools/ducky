@@ -10,23 +10,19 @@
     <p>This message may be from quacks!</p>
 
     <div class="open">
-      {#snippet button()}
-        <!--
+      <!--
           So, technically, there isn't a search passed here, just a fragment.
           But... the router handles it, so we just do some hacks on the chat page.
         -->
-        <a
-          class="chat-button"
-          data-query={JSON.stringify({
-            q: "How can I spot phishing?",
-          })}
-          href="#/chat"
-        >
-          How can I spot phishing?
-        </a>
-      {/snippet}
-
-      {@render button()}
+      <a
+        class="chat-button"
+        data-query={JSON.stringify({
+          q: "How can I spot phishing?",
+        })}
+        href="#/chat"
+      >
+        How can I spot phishing?
+      </a>
     </div>
   </div>
 </Wrapper>

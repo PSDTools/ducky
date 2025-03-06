@@ -1,10 +1,15 @@
-<script lang="ts">
-  import { links } from "@dvcol/svelte-simple-router";
-  import type { Snippet } from "svelte";
+<script lang="ts" module>
+  import quack from "../../assets/quack.mp3";
 
+  const audio = new Audio(quack);
+</script>
+
+<script lang="ts">
   import backButton from "../../assets/back-button.svg";
   import duckyLogo from "../../assets/ducky.svg";
-  import quack from "../../assets/quack.mp3";
+
+  import { links } from "@dvcol/svelte-simple-router";
+  import type { Snippet } from "svelte";
 
   interface Props {
     children: Snippet;
@@ -38,7 +43,7 @@
         <button
           class="sound-button"
           onclick={async () => {
-            await new Audio(quack).play();
+            await audio.play();
           }}
           type="button"
         >
