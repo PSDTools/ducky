@@ -1,13 +1,13 @@
 <script lang="ts">
   import Wrapper from "./Wrapper.svelte";
-  import { AlertTriangle } from "lucide-svelte";
+  import { Check } from "lucide-svelte";
 </script>
 
 <Wrapper pageTitle="Phishing">
   <div class="center-stuff">
-    <AlertTriangle color="#ff0000" size="8rem" />
+    <Check color="#35ff08" size="8rem" />
 
-    <p>This message may be from quacks!</p>
+    <p>This message is most likely legitimate!</p>
 
     <div class="open">
       <!--

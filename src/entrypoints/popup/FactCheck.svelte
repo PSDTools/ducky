@@ -49,7 +49,7 @@
 
 <style>
   .radio-indent {
-    margin-left: 40px;
+    margin-left: 24px;
   }
 
   .option {
@@ -72,13 +72,19 @@
 
   /* New styles for scaling current tab text without taking more than two lines */
   .current-tab-text {
-    /* Font size scales between 14px and 18px based on the viewport width */
-    font-size: clamp(14px, 2vw, 18px);
+    /* Font size scales between 12px and 16px based on the viewport width */
+    font-size: clamp(12px, 1.8vw, 16px);
     overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
-    line-clamp: 2;
-    display: flex;
-    flex-direction: column;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all; /* Forces breaking at any character */
+    max-width: 100%;
+    line-height: 1.3;
+    margin-top: 2px;
+    padding-right: 5px;
   }
   .card {
     display: flex;

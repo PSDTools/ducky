@@ -2,8 +2,8 @@
   import BlankAnchor from "./BlankAnchor.svelte";
   import Wrapper from "./Wrapper.svelte";
 
-  let factuality = $state(92);
-  const factual = $derived(factuality > 50);
+  let factuality = $state(4);
+  let factual = $derived(factuality > 50);
 </script>
 
 <Wrapper pageTitle="Fact Checker">
@@ -21,7 +21,7 @@
 
     <span class="factuality">
       <!-- 8-ball? -->
-      {factual ? "Likely True" : "Likely fake"}
+      {factual ? "Likely True" : "Likely Fake"}
     </span>
 
     <details class="details">
@@ -29,9 +29,9 @@
       <ul>
         <li>
           <BlankAnchor
-            href="https://www.wwt.com/news/cisco-expands-partnership-with-nvidia-to-accelerate-ai-adoption-in-the-enterprise"
+            href="https://reutersinstitute.politics.ox.ac.uk/news/onions-head-writer-takes-satire-very-seriously-our-mandate-just-be-funny "
           >
-            Official Blogpost
+            Article on Source
           </BlankAnchor>
         </li>
       </ul>

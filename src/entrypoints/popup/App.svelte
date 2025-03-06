@@ -7,17 +7,25 @@
 
   import HomeComponent from "./Home.svelte";
   import PhishingComponent from "./Phishing.svelte";
+  import PhishingReal from "./PhishingReal.svelte";
+  import PhishingMenu from "./PhishingMenu.svelte";
+  import PhishingLoading from "./PhishingLoading.svelte";
   import FactCheckComponent from "./FactCheck.svelte";
   import ChatComponent from "./Chat.svelte";
   import FactCheckLoadingComponent from "./FactCheckLoading.svelte";
   import FactsChecked from "./FactsChecked.svelte";
+  import FactsCheckedFake from "./FactsCheckedFake.svelte";
 
   const RouteName = {
     Home: "home",
     Phishing: "phishing",
+    PhishingReal: "phishing-real",
+    PhishingMenu: "phishing-menu",
+    PhishingLoading: "phishing-loading",
     FactCheck: "fact-check",
     FactCheckLoading: "fact-check-loading",
     FactsChecked: "real",
+    FactsCheckedFake: "fake",
     Chat: "chat",
     Any: "any",
   } as const;
@@ -36,6 +44,21 @@
       component: PhishingComponent,
     },
     {
+      name: RouteName.PhishingReal,
+      path: `/${RouteName.PhishingReal}`,
+      component: PhishingReal,
+    },
+    {
+      name: RouteName.PhishingMenu,
+      path: `/${RouteName.PhishingMenu}`,
+      component: PhishingMenu,
+    },
+    {
+      name: RouteName.PhishingLoading,
+      path: `/${RouteName.PhishingLoading}`,
+      component: PhishingLoading,
+    },
+    {
       name: RouteName.FactCheck,
       path: `/${RouteName.FactCheck}`,
       component: FactCheckComponent,
@@ -50,18 +73,23 @@
       path: `/${RouteName.FactsChecked}`,
       component: FactsChecked,
     },
+
     {
       name: RouteName.Chat,
       path: `/${RouteName.Chat}`,
       component: ChatComponent,
     },
-
     {
       name: RouteName.Any,
       path: "*",
       redirect: {
         name: RouteName.Home,
       },
+    },
+    {
+      name: RouteName.FactsCheckedFake,
+      path: `/${RouteName.FactsCheckedFake}`,
+      component: FactsCheckedFake,
     },
   ] as const satisfies Route<RouteNames>[];
 

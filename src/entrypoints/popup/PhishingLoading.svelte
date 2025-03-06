@@ -4,16 +4,14 @@
   import { delay } from "./utils.ts";
   import { onMount } from "svelte";
   const randomMessages = [
-    "Verifying sources",
     "Feeding ducks",
-    "Checking for quacks",
-    "Scouring the pond for biases",
+    "Scanning for phishy content",
     "Checking for goose influence",
     "Gathering the flock",
     "Flying the coop",
   ];
   let currentTab = $state<chrome.tabs.Tab>();
-  var nextPage: string = $state("real");
+  var nextPage: string = $state("phishing");
 
   onMount(async () => {
     [currentTab] = await browser.tabs.query({
@@ -21,18 +19,23 @@
       currentWindow: true,
     });
 
-    if ((currentTab.url ?? "").includes("https://newsroom.cisco.com")) {
-      nextPage = "real";
-    } else if ((currentTab.url ?? "").includes("https://theonion.com/")) {
-      nextPage = "fake";
+    // Implement phishing email logic here
+    if (
+      // Eli Email
+      (currentTab.url ?? "").includes("FMfcgzQZTVrVkqWGtfcmgxFFkPHsZChW")
+    ) {
+      nextPage = "phishing-real";
+    } else if (
+      // Fitz Email
+      (currentTab.url ?? "").includes("FMfcgzQZTCpQgxWHktWtFpvJvgTXPsNs")
+    ) {
+      nextPage = "phishing";
     }
   });
 </script>
 
-<Wrapper pageTitle="Fact Checker">
+<Wrapper pageTitle="Phishing Detector">
   <div class="fact-wrapper">
-    <!-- Implement script here to go to different pages based on url -->
-
     <Loading
       loader={async (aborter) => await delay(4550, aborter)}
       {randomMessages}

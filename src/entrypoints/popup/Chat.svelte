@@ -1,28 +1,29 @@
-<script lang="ts">
-  import BlankAnchor from "./BlankAnchor.svelte";
-  import Wrapper from "./Wrapper.svelte";
-  import { Send } from "lucide-svelte";
+<script lang="ts" module>
   import { GoogleGenerativeAI } from "@google/generative-ai";
 
   const key = import.meta.env.VITE_GEMINI_API_KEY;
 
   const genAI = new GoogleGenerativeAI(key);
-  // console.log(result.response.text());
+
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash-lite",
+    systemInstruction:
+      'You are DUCKY and help people with cybersecurity and digital literacy. Always say "Quack!" at the end of every response. Have a playful but serious tone; business casual. DUCKY has a phishing detector, chatbot, and website fact checker. DUCKY is a web extension available on all web browsers. The phishing detector looks at an email and determines if it is phishing attack or legitimate. You are the chatbot, you help users understand information and answer questions. The fact checker checks websites\' data, finds similar articles to determine if the website is trustworthy. DUCKY is a rubber duck because computer science often uses rubber duckies to talk to, Ducky also stands Defending and Understanding Cybersecurity Knowledge Year-round. Be friendly, no cursing. Keep your response under 75 words, excluding the word "Quack!" from the count. Do not leave blank lines.',
+  });
+</script>
+
+<script lang="ts">
+  import BlankAnchor from "./BlankAnchor.svelte";
+  import Wrapper from "./Wrapper.svelte";
+  import { Send } from "lucide-svelte";
 
   const parameters = new URLSearchParams(
     globalThis.location.hash.split("?")[1],
   );
 
   let question = $state<string>(parameters.get("q") ?? "");
-  // let currentQuestion = $state<string>("");
-  let response = $state<string>();
+  let response = $state<string>("");
   let loading = $state<boolean>(false);
-
-  const model = genAI.getGenerativeModel({
-    model: "gemini-2.0-flash-lite",
-    systemInstruction:
-      'you are DUCKY and have to help people with cybersecurity and digital literacy. always say "Quack!" at the end of every response. Have a playful but serious tone; business casual. DUCKY has a phishing detector, chat bot, and website fact checker. DUCKY is a chrome and firefox web extension. The phishing detector will automatically pop up when the user looks at an email and determines if it is phishing. The chatbot is what you are and can help users understand information or can be used to ask questions. The fact checker checks websites data and finds sources and other places to determine if the website is trustworthy. DUCKY is a rubber duck because computer science often uses rubber duckies to talk to. Be friendly, no cursing. Keep response under 75 words exclude the word "Quack!" from the count. Do not leave blank lines inbetween lines.',
-  });
 </script>
 
 <Wrapper pageTitle="Ducky Chat">
@@ -35,14 +36,12 @@
       setTimeout(() => {
         void (async () => {
           const airesponse = await model.generateContent(question);
-          console.log(airesponse.response.text());
           response = airesponse.response.text();
         })();
         loading = false;
       }, 2000);
 
       loading = true;
-      // question = "";
       event.preventDefault();
     }}
   >
@@ -95,6 +94,7 @@
     all: unset;
     outline: revert;
     background-color: #e2c100;
+    color: inherit;
 
     display: inline-flex;
     align-items: center;

@@ -1,22 +1,30 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import Wrapper from "./Wrapper.svelte";
+
+  let currentTab = $state<chrome.tabs.Tab>();
+  let form = $state<HTMLFormElement>();
+
+  onMount(async () => {
+    [currentTab] = await browser.tabs.query({
+      active: true,
+      currentWindow: true,
+    });
+  });
 </script>
 
-<Wrapper
-  bigTitle={true}
-  isHome={true}
-  pageTitle="Home"
-  subtitle="Teaching & Protecting"
->
-  <div class="card">
-    {#snippet button(name: string, route: string)}
-      <a class="link-button" href={route}>{name}</a>
-    {/snippet}
-
-    {@render button("Chat", "#/chat")}
-    {@render button("Fact Checker", "#/fact-check")}
-    {@render button("Phishing Detector", "#/phishing-menu")}
-  </div>
+<Wrapper pageTitle="Phishing Detector">
+  <form bind:this={form} action="#fact-check-loading" method="get">
+    <fieldset>
+      <legend>Scan this email for phishing?</legend>
+      <div></div>
+    </fieldset>
+    <div class="card">
+      <button data-name="phishing-loading" data-router-link type="submit">
+        Scan For Phishing
+      </button>
+    </div>
+  </form>
 </Wrapper>
 
 <style>
@@ -24,20 +32,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 1rem;
     padding: 1rem;
     text-align: center;
-    height: 17.5rem;
 
-    & > .link-button {
+    & > button {
       width: 100%;
-      height: 15%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       background-color: #e2c100;
       color: #242424;
       transition:
