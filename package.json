@@ -16,6 +16,7 @@
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
     "zip:safari": "wxt zip -b safari",
+    "zip:edge": "wxt zip -b edge",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "prepare": "wxt prepare",
     "format": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache'",
