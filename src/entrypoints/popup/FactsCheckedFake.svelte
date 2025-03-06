@@ -36,6 +36,25 @@
         </li>
       </ul>
     </details>
+    <div class="open">
+      {#snippet button()}
+        <!--
+          So, technically, there isn't a search passed here, just a fragment.
+          But... the router handles it, so we just do some hacks on the chat page.
+        -->
+        <a
+          class="chat-button"
+          data-query={JSON.stringify({
+            q: "How can I fact check sources on my own?",
+          })}
+          href="#/chat"
+        >
+          How can I fact check sources on my own?
+        </a>
+      {/snippet}
+
+      {@render button()}
+    </div>
   </div>
 </Wrapper>
 
@@ -86,5 +105,37 @@
     fill: #e2c100;
     font-size: 0.5em;
     text-anchor: middle;
+  }
+  .open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+
+    & > .chat-button {
+      width: 100%;
+      background-color: #e2c100;
+      color: #242424;
+      transition:
+        border-color 0.25s,
+        background-color 0.3s,
+        transform 0.2s;
+
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0d500;
+        transform: scale(1.075);
+      }
+    }
   }
 </style>

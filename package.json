@@ -12,6 +12,7 @@
     "build:firefox": "wxt build -b firefox",
     "dev:edge": "wxt -b edge",
     "build:safari": "wxt build -b safari",
+    "dev:edge": "wxt -b edge",
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
     "zip:safari": "wxt zip -b safari",
